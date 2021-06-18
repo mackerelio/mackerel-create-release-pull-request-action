@@ -1,105 +1,63 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
+# mackerel-create-release-pull-request-action
 
-# Create a JavaScript Action using TypeScript
+<a href="https://github.com/mackerelio/create-release-pull-request-action/actions"><img alt="status" src="https://github.com/mackerelio/create-release-pull-request-action/workflows/build-test/badge.svg"></a>
 
-Use this template to bootstrap the creation of a TypeScript action.:rocket:
+This repository is used for this organization's release flow and is subject to change without notice.
 
-This template includes compilation support, tests, a validation workflow, publishing, and versioning guidance.  
+## Development
 
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
+Install the dependencies
 
-## Create an action from this template
-
-Click the `Use this Template` and provide the new repo details for your action
-
-## Code in Main
-
-> First, you'll need to have a reasonably modern version of `node` handy. This won't work with versions older than 9, for instance.
-
-Install the dependencies  
 ```bash
-$ npm install
+npm install
 ```
 
-Build the typescript and package it for distribution
-```bash
-$ npm run build && npm run package
-```
+Run the tests :heavy_check_mark:
 
-Run the tests :heavy_check_mark:  
 ```bash
 $ npm test
-
- PASS  ./index.test.js
-  ✓ throws invalid number (3ms)
-  ✓ wait 500 ms (504ms)
-  ✓ test runs (95ms)
-
 ...
 ```
 
-## Change action.yml
-
-The action.yml contains defines the inputs and output for your action.
-
-Update the action.yml with your name, description, inputs and outputs for your action.
-
-See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions)
-
-## Change the Code
-
-Most toolkit and CI/CD operations involve async operations so the action is run in an async function.
-
-```javascript
-import * as core from '@actions/core';
-...
-
-async function run() {
-  try { 
-      ...
-  } 
-  catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-run()
-```
-
-See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/README.md#packages) for the various packages.
-
-## Publish to a distribution branch
-
-Actions are run from GitHub repos so we will checkin the packed dist folder. 
-
-Then run [ncc](https://github.com/zeit/ncc) and push the results:
-```bash
-$ npm run package
-$ git add dist
-$ git commit -a -m "prod dependencies"
-$ git push origin releases/v1
-```
-
-Note: We recommend using the `--license` option for ncc, which will create a license file for all of the production node modules used in your project.
-
-Your action is now published! :rocket: 
-
-See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-
-## Validate
-
-You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml))
+## Usage
 
 ```yaml
-uses: ./
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'next release version'
+        required: true
+
+env:
+  GIT_AUTHOR_NAME: ...
+  GIT_AUTHOR_EMAIL: ...
+  GIT_COMMITTER_NAME: ...
+  GIT_COMMITTER_EMAIL: ...
+
+uses: mackerelio/mackerel-create-release-pull-request-action@main
+id: start
 with:
-  milliseconds: 1000
+  github_token: ${{ secrets.GITHUB_TOKEN }}
+  next_version: ${{ github.event.inputs.release_version }}
+  package_name: mkr
+
+# You can put any steps between **mackerel-create-release-pull-request-action**s.
+
+run: |
+  CURRENT=${{ steps.start.outputs.currentVersion }}
+  NEXT=${{ steps.start.outputs.nextVersion }}
+  mv packaging/mkr_$CURRENT.orig.tar.gz packaging/mkr_$NEXT.orig.tar.gz
+
+uses: mackerelio/mackerel-create-release-pull-request-action@main
+with:
+  github_token: ${{ secrets.GITHUB_TOKEN }}
+  finished: "true"
+  package_name: mkr
+  next_version: ${{ steps.start.outputs.nextVersion }}
+  branch_name: ${{ steps.start.outputs.branchName }}
+  pull_request_infos: ${{ steps.start.outputs.pullRequestInfos }}
+env:
+  RUNNER_DEBUG: 1
 ```
 
-See the [actions tab](https://github.com/actions/typescript-action/actions) for runs of this action! :rocket:
-
-## Usage:
-
-After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action

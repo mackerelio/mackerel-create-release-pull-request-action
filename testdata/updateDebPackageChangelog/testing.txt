@@ -1,0 +1,14 @@
+test (0.1.1-1.v2) stable; urgency=low
+
+  * foo bar (by hoge)
+    <https://example.com/foobar>
+
+ -- mackerel <mackerel-developers@hatena.ne.jp>  Thu, 18 Feb 2021 06:00:00 +0000
+
+test (0.1.0-1.v2) stable; urgency=low
+
+  * baz qux (by huga)
+    <https://example.com/bazqux>
+
+ -- mackerel <mackerel-developers@hatena.ne.jp>  Tue, 16 Feb 2021 05:00:00 +0000
+

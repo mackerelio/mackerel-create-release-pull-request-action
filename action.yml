@@ -1,11 +1,36 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Create release pull request'
+description: 'create "release" pull request, bump-up version, modify changelog'
+author: 'hatena'
 inputs:
-  milliseconds: # change this
+  github_token:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'secrets.GITHUB_TOKEN'
+  next_version:
+    required: true
+    description: 'Next release version'
+  finished:
+    required: false
+    description: 'false: collect info, rewrite files / true: commit, create pull request'
+    default: 'false'
+  package_name:
+    required: true
+    description: 'Package name'
+  version_go_file_path:
+    required: false
+    description: 'Version definition file (e.g. version.go)'
+    default: 'version.go'
+  pull_request_infos:
+    required: false
+    description: 'pull request infos json'
+  branch_name:
+    required: false
+    description: 'branch name'
+  debug_clone_directory_path:
+    required: false
+    description: '[DEBUG] Directory name'
+  debug_github_repository:
+    required: false
+    description: '[DEBUG] Override github.repository'
 runs:
   using: 'node12'
   main: 'dist/index.js'

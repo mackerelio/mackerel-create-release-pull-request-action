@@ -1,21 +1,24 @@
 {
-  "name": "typescript-action",
+  "name": "@mackerelio/create-release-pull-request-action",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "create release pull request action",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint src",
+    "lint:prettier": "prettier --check src",
+    "lint-fix": "run-p lint-fix:*",
+    "lint-fix:eslint": "eslint src --fix",
+    "lint-fix:prettier": "prettier --write src",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+    "all": "npm run build && npm run lint && npm run package && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/mackerelio/mackerel-create-release-pull-request-action.git"
   },
   "keywords": [
     "actions",
@@ -25,21 +28,37 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.1.0",
+    "@actions/github": "^5.0.0",
+    "@actions/glob": "^0.2.0",
+    "@actions/io": "^1.1.1",
+    "ajv": "^8.6.0",
+    "date-fns": "^2.22.1",
+    "escape-string-regexp": "^4.0.0",
+    "semver": "^7.3.5"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.9",
-    "@typescript-eslint/parser": "^4.8.1",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.17.3",
+    "@types/semver": "^7.3.6",
+    "@types/tmp": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.27.0",
     "@vercel/ncc": "^0.25.1",
-    "eslint": "^7.17.0",
-    "eslint-plugin-github": "^4.1.1",
-    "eslint-plugin-jest": "^24.1.3",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^3.14.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.2.1",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.1.3"
+    "snapshot-diff": "^0.8.1",
+    "timezone-mock": "^1.1.4",
+    "tmp-promise": "^3.0.2",
+    "ts-jest": "^26.5.3",
+    "typescript": "^4.2.3"
   }
 }

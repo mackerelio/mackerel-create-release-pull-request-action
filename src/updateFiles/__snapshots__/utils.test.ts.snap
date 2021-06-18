@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`replaceContents can replace content append newline when ended newline is not exist 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  aaa
+  bbb
+  ccc
++ ddd
+"
+`;
+
+exports[`replaceContents can replace content replace fragment rpm specfile 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -3,9 +3,12 @@
+  %files
+  %defattr(-,root,root)
+  %{_localbindir}/%{name}
+
+  %changelog
++ * Thu Feb 18 2021 <foo@example.com> - 1.2.4
++ - hoge huga piyoe
++
+  * Tue Feb 16 2021 <foo@example.com> - 1.2.3
+  - foo bar baz qux
+
+"
+`;
+
+exports[`replaceContents can replace content replace version in Makefile 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  BIN := mkr
+- VERSION := 1.2.3
++ VERSION := 4.5.6
+  CURRENT_REVISION := $(shell git rev-parse --short HEAD)
+  BUILD_LDFLAGS := \\"-w -s -X main.gitcommit=$(CURRENT_REVISION)\\"
+"
+`;
+
+exports[`replaceContents can replace content results is ended newline 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  aaa
+  bbb
+  ccc
++ ddd
+"
+`;

@@ -1,0 +1,10 @@
+%files
+%defattr(-,root,root)
+%{_bindir}/%{name}
+
+%changelog
+* Thu Feb 18 2021 <mackerel-developers@hatena.ne.jp> - 0.1.1
+- foo bar (by hoge)
+
+* Thu Feb 16 2021 <mackerel-developers@hatena.ne.jp> - 0.1.0
+- baz qux (by huga)

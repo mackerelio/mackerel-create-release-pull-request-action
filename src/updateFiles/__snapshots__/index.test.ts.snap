@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bumpMakefile can rewrite version 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,7 +1,7 @@
+  BIN := mkr
+- VERSION := 0.1.1
++ VERSION := 0.1.2
+  CURRENT_REVISION := $(shell git rev-parse --short HEAD)
+  BUILD_LDFLAGS := \\"-w -s -X main.gitcommit=$(CURRENT_REVISION)\\"
+
+  export GO111MODULE=on
+"
+`;
+
+exports[`bumpVersionGo can rewrite version 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+  package main
+
+- const version = \\"0.1.0\\"
++ const version = \\"0.1.1\\"
+
+  var gitcommit string
+"
+`;
+
+exports[`updateDebPackageChangelog can append text 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,5 +1,14 @@
++ test (0.1.2-1.v2) stable; urgency=low
++
++   * hoge huga (by piyo)
++     <https://example.com/hogehuga>
++   * honyarara (by piyo)
++     <https://example.com/honyarara>
++
++  -- mackerel <mackerel-developers@hatena.ne.jp>  Sat, 20 Feb 2021 07:00:00 +0000
++
+  test (0.1.1-1.v2) stable; urgency=low
+
+    * foo bar (by hoge)
+      <https://example.com/foobar>
+"
+`;
+
+exports[`updateMarkdownChangelog can append text 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,7 +1,13 @@
+  # Changelog
+
++ ## 0.1.2 (2021-02-20)
++
++ * hoge huga #3 (piyo)
++ * honyarara #4 (piyo)
++
++
+  ## 0.1.1 (2021-02-18)
+
+  * foo bar #2 (hoge)
+
+"
+`;
+
+exports[`updateRpmPackageChangelog can append text 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,14 @@
+  %files
+  %defattr(-,root,root)
+  %{_bindir}/%{name}
+
+  %changelog
++ * Sat Feb 20 2021 <mackerel-developers@hatena.ne.jp> - 0.1.2
++ - hoge huga (by piyo)
++ - honyarara (by piyo)
++
+  * Thu Feb 18 2021 <mackerel-developers@hatena.ne.jp> - 0.1.1
+  - foo bar (by hoge)
+
+  * Thu Feb 16 2021 <mackerel-developers@hatena.ne.jp> - 0.1.0
+  - baz qux (by huga)"
+`;
