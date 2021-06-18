@@ -1,6 +1,6 @@
 # mackerel-create-release-pull-request-action
 
-<a href="https://github.com/mackerelio/create-release-pull-request-action/actions"><img alt="status" src="https://github.com/mackerelio/create-release-pull-request-action/workflows/build-test/badge.svg"></a>
+<a href="https://github.com/mackerelio/mackerel-create-release-pull-request-action/actions"><img alt="status" src="https://github.com/mackerelio/mackerel-create-release-pull-request-action/workflows/build-test/badge.svg"></a>
 
 This repository is used for this organization's release flow and is subject to change without notice.
 
