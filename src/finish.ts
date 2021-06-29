@@ -35,9 +35,7 @@ type FinishParams = Readonly<{
   exec: (commandLine: string, args?: string[], options?: ExecOptions) => Promise<number>;
 }>;
 
-export async function finish(
-  params: FinishParams
-): Promise<{
+export async function finish(params: FinishParams): Promise<{
   head: string;
   base: string;
   title: string;

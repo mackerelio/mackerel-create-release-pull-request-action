@@ -32,9 +32,7 @@ type Params = Readonly<{
   exec: (commandLine: string, args?: string[], options?: ExecOptions) => Promise<number>;
 }>;
 
-export async function start(
-  params: Params
-): Promise<{
+export async function start(params: Params): Promise<{
   nextVersion: string;
   pullRequestInfos: PullRequestInfo[];
 }> {
