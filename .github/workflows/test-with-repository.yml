@@ -50,6 +50,7 @@ jobs:
 
       - run: |
           mv packaging/mkr_${{ steps.start.outputs.currentVersion }}.orig.tar.gz packaging/mkr_${{ steps.start.outputs.nextVersion }}.orig.tar.gz
+        working-directory: var/mkr
 
       - uses: ./
         with:
