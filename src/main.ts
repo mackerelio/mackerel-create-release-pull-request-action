@@ -123,8 +123,12 @@ async function run(): Promise<void> {
     } else {
       throw new Error(`finished: ${finished} is invalid.`);
     }
-  } catch (error) {
-    core.setFailed(error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      core.setFailed(error.message);
+    } else {
+      core.setFailed("unknown error");
+    }
   }
 }
 
