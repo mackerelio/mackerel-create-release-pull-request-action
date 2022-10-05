@@ -36,12 +36,12 @@
     "ajv": "^8.11.0",
     "date-fns": "^2.29.3",
     "escape-string-regexp": "^4.0.0",
-    "semver": "^7.3.5"
+    "semver": "^7.3.8"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@types/node": "^18.0.3",
-    "@types/semver": "^7.3.10",
+    "@types/semver": "^7.3.12",
     "@types/tmp": "^0.2.3",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
