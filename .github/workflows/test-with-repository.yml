@@ -1,4 +1,4 @@
-name: 'test with repository'
+name: "test with repository"
 on:
   workflow_dispatch:
 
@@ -16,14 +16,17 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: mackerelio/mkr
           path: var/mkr
           fetch-depth: 0
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
       - run: |
           npm ci
       - run: |
