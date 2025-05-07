@@ -25,11 +25,15 @@ async function updateFiles(params: {
   pullRequestInfos: PullRequestInfo[];
   packageName: string;
   versionGoFilePath: string;
+  ignoreUpdateProgramFiles: boolean;
 }): Promise<void> {
   const now = new Date();
 
-  await bumpVersionGo(params.versionGoFilePath, params.nextVersion);
-  await bumpMakefile("Makefile", params.nextVersion);
+  if (!params.ignoreUpdateProgramFiles) {
+    await bumpVersionGo(params.versionGoFilePath, params.nextVersion);
+    await bumpMakefile("Makefile", params.nextVersion);
+  }
+
   await updateDebPackageChangelog(
     "packaging/deb*/debian/changelog",
     now,
@@ -81,6 +85,7 @@ async function run(): Promise<void> {
         pullRequestInfos,
         versionGoFilePath: core.getInput("version_go_file_path"),
         packageName,
+        ignoreUpdateProgramFiles: core.getInput("ignore_update_program_files") == "true",
       });
     } else if (finished === "true") {
       const nextVersion = core.getInput("next_version");
