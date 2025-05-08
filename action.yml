@@ -31,6 +31,10 @@ inputs:
   debug_github_repository:
     required: false
     description: '[DEBUG] Override github.repository'
+  ignore_update_program_files:
+    required: false
+    default: "false"
+    description: 'ignore update Program Files(Makefile, go.mod)'
 runs:
   using: 'node20'
   main: 'dist/index.js'
