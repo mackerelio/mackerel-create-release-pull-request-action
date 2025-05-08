@@ -227,8 +227,10 @@ const start_1 = __nccwpck_require__(55125);
 const updateFiles_1 = __nccwpck_require__(95657);
 async function updateFiles(params) {
     const now = new Date();
-    await (0, updateFiles_1.bumpVersionGo)(params.versionGoFilePath, params.nextVersion);
-    await (0, updateFiles_1.bumpMakefile)("Makefile", params.nextVersion);
+    if (!params.ignoreUpdateProgramFiles) {
+        await (0, updateFiles_1.bumpVersionGo)(params.versionGoFilePath, params.nextVersion);
+        await (0, updateFiles_1.bumpMakefile)("Makefile", params.nextVersion);
+    }
     await (0, updateFiles_1.updateDebPackageChangelog)("packaging/deb*/debian/changelog", now, params.packageName, params.nextVersion, params.pullRequestInfos);
     await (0, updateFiles_1.updateRpmPackageChangelog)(`packaging/rpm/${params.packageName}*.spec`, now, params.nextVersion, params.pullRequestInfos);
     await (0, updateFiles_1.updateMarkdownChangelog)("CHANGELOG.md", now, params.nextVersion, params.pullRequestInfos);
@@ -264,6 +266,7 @@ async function run() {
                 pullRequestInfos,
                 versionGoFilePath: core.getInput("version_go_file_path"),
                 packageName,
+                ignoreUpdateProgramFiles: core.getInput("ignore_update_program_files") == "true",
             });
         }
         else if (finished === "true") {
