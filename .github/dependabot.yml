@@ -7,3 +7,7 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: 'daily'
+    cooldown:
+      default-days: 5
+      include:
+        - "*"
