@@ -1,5 +1,5 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import { fixupConfigRules, fixupConfigRules, fixupPluginRules } from "@eslint/compat";
+import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import jest from "eslint-plugin-jest";
 import globals from "globals";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
@@ -61,7 +61,7 @@ export default defineConfig([
 
         languageOptions: {
             parser: tsParser,
-            ecmaVersion: 5,
+            ecmaVersion: "latest",
             sourceType: "module",
 
             parserOptions: {
