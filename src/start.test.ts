@@ -78,7 +78,7 @@ describe("start", () => {
       }
     );
 
-    expect(mergedPullRequests).toBeCalledWith({
+    expect(mergedPullRequests).toHaveBeenCalledWith({
       token,
       owner,
       repo,
