@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`bumpMakefile can rewrite version 1`] = `
 "Snapshot Diff:
@@ -10,7 +10,7 @@ exports[`bumpMakefile can rewrite version 1`] = `
 - VERSION := 0.1.1
 + VERSION := 0.1.2
   CURRENT_REVISION := $(shell git rev-parse --short HEAD)
-  BUILD_LDFLAGS := \\"-w -s -X main.gitcommit=$(CURRENT_REVISION)\\"
+  BUILD_LDFLAGS := "-w -s -X main.gitcommit=$(CURRENT_REVISION)"
 
   export GO111MODULE=on
 "
@@ -23,8 +23,8 @@ exports[`bumpVersionGo can rewrite version 1`] = `
 
   package main
 
-- const version = \\"0.1.0\\"
-+ const version = \\"0.1.1\\"
+- const version = "0.1.0"
++ const version = "0.1.1"
 
   var gitcommit string
 "
