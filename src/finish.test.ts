@@ -50,7 +50,7 @@ describe("finish", () => {
 
     await expect(
       finish({ ...defaultParams, inputPullRequestInfos: '[{"hoge":1},{"hoge":2}]', exec })
-    ).rejects.toThrowError("inputPullRequestInfos is invalid.");
+    ).rejects.toThrow("inputPullRequestInfos is invalid.");
   });
 });
 
