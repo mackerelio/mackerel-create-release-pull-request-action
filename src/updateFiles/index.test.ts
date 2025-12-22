@@ -51,7 +51,7 @@ describe("bumpMakefile", () => {
   });
 });
 
-const date = new Date(Date.UTC(2021, 1, 20, 7, 0, 0));
+const date = Date.UTC(2021, 1, 20, 7, 0, 0);
 
 const prs: PullRequestInfo[] = [
   {
@@ -76,7 +76,7 @@ describe("updateDebPackageChangelog", () => {
     const { path: testFilePath } = await file();
     await cp(initialFile, testFilePath);
 
-    await updateDebPackageChangelog(testFilePath, date, "test", "0.1.2", prs);
+    await updateDebPackageChangelog(testFilePath, new Date(date), "test", "0.1.2", prs);
 
     const processed = await fs.promises.readFile(testFilePath, "utf8");
     expect(snapshotDiff(initial, processed)).toMatchSnapshot();
@@ -86,7 +86,7 @@ describe("updateDebPackageChangelog", () => {
     const { path: testFilePath } = await file();
     await cp(initialFile, testFilePath);
     await expect(
-      updateDebPackageChangelog(testFilePath, date, "foo", "0.1.2", prs)
+      updateDebPackageChangelog(testFilePath, new Date(date), "foo", "0.1.2", prs)
     ).rejects.toThrow("packageName is invalid. : foo");
   });
 });
@@ -99,7 +99,7 @@ describe("updateRpmPackageChangelog", () => {
     const { path: testFilePath } = await file();
     await cp(initialFile, testFilePath);
 
-    await updateRpmPackageChangelog(testFilePath, date, "0.1.2", prs);
+    await updateRpmPackageChangelog(testFilePath, new Date(date), "0.1.2", prs);
 
     const processed = await fs.promises.readFile(testFilePath, "utf8");
     expect(snapshotDiff(initial, processed)).toMatchSnapshot();
@@ -114,7 +114,7 @@ describe("updateMarkdownChangelog", () => {
     const { path: testFilePath } = await file();
     await cp(initialFile, testFilePath);
 
-    await updateMarkdownChangelog(testFilePath, date, "0.1.2", prs);
+    await updateMarkdownChangelog(testFilePath, new Date(date), "0.1.2", prs);
 
     const processed = await fs.promises.readFile(testFilePath, "utf8");
     expect(snapshotDiff(initial, processed)).toMatchSnapshot();
