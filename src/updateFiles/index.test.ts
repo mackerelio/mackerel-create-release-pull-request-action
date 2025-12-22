@@ -51,6 +51,9 @@ describe("bumpMakefile", () => {
   });
 });
 
+// please no initialize `new Date` at global
+// timesone-mock swizzles global Date object to MockDate
+// on global scope not swizzled yet
 const date = Date.UTC(2021, 1, 20, 7, 0, 0);
 
 const prs: PullRequestInfo[] = [
