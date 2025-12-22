@@ -46,7 +46,7 @@ export async function updateDebPackageChangelog(
     for (const pr of prs) {
       update += `  * ${pr.title} (by ${pr.authorName})\n    <${pr.url}>\n`;
     }
-    update += `\n -- ${name} <${email}>  ${format(date, "E, d MMM Y HH:mm:ss xx")}\n\n`;
+    update += `\n -- ${name} <${email}>  ${format(date, "E, d MMM y HH:mm:ss xx")}\n\n`;
     return update + content;
   });
 }
@@ -58,7 +58,7 @@ export async function updateRpmPackageChangelog(
   prs: PullRequestInfo[]
 ): Promise<void> {
   await replaceContents([rpmPackageChangelogPath], content => {
-    let update = `* ${format(date, "E MMM d Y")} <${email}> - ${nextVersion}\n`;
+    let update = `* ${format(date, "E MMM d y")} <${email}> - ${nextVersion}\n`;
     for (const pr of prs) {
       update += `- ${pr.title} (by ${pr.authorName})\n`;
     }
@@ -73,7 +73,7 @@ export async function updateMarkdownChangelog(
   prs: PullRequestInfo[]
 ): Promise<void> {
   await replaceContents([markdownPath], content => {
-    let update = `\n\n## ${nextVersion} (${format(date, "Y-MM-dd")})\n\n`;
+    let update = `\n\n## ${nextVersion} (${format(date, "y-MM-dd")})\n\n`;
     for (const pr of prs) {
       update += `* ${pr.title} #${pr.number} (${pr.authorName})\n`;
     }
