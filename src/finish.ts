@@ -1,7 +1,9 @@
 import { ExecOptions } from "@actions/exec";
 import { Endpoints } from "@octokit/types";
-import Ajv, { JSONSchemaType } from "ajv";
+import _Ajv, { JSONSchemaType } from "ajv";
 import { PullRequestInfo } from "./collectRepositoryInfo";
+
+const Ajv = _Ajv as unknown as typeof _Ajv.default;
 
 function buildPRContent(prs: readonly PullRequestInfo[]): string {
   let body = "";

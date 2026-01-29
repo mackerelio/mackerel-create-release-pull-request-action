@@ -1,40 +1,40 @@
-name: 'Create release pull request'
+name: "Create release pull request"
 description: 'create "release" pull request, bump-up version, modify changelog'
-author: 'hatena'
+author: "hatena"
 inputs:
   github_token:
     required: true
-    description: 'secrets.GITHUB_TOKEN'
+    description: "secrets.GITHUB_TOKEN"
   next_version:
     required: true
-    description: 'Next release version'
+    description: "Next release version"
   finished:
     required: false
-    description: 'false: collect info, rewrite files / true: commit, create pull request'
-    default: 'false'
+    description: "false: collect info, rewrite files / true: commit, create pull request"
+    default: "false"
   package_name:
     required: true
-    description: 'Package name'
+    description: "Package name"
   version_go_file_path:
     required: false
-    description: 'Version definition file (e.g. version.go)'
-    default: 'version.go'
+    description: "Version definition file (e.g. version.go)"
+    default: "version.go"
   pull_request_infos:
     required: false
-    description: 'pull request infos json'
+    description: "pull request infos json"
   branch_name:
     required: false
-    description: 'branch name'
+    description: "branch name"
   debug_clone_directory_path:
     required: false
-    description: '[DEBUG] Directory name'
+    description: "[DEBUG] Directory name"
   debug_github_repository:
     required: false
-    description: '[DEBUG] Override github.repository'
+    description: "[DEBUG] Override github.repository"
   ignore_update_program_files:
     required: false
     default: "false"
-    description: 'ignore update Program Files(Makefile, go.mod)'
+    description: "ignore update Program Files(Makefile, go.mod)"
 runs:
-  using: 'node20'
-  main: 'dist/index.js'
+  using: "node20"
+  main: "dist/index.js"

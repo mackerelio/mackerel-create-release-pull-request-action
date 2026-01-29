@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { finish, send, PullsCreateResponse } from "./finish";
 
 describe("finish", () => {

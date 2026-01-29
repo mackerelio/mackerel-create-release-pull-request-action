@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import escapeStringRegexp from "escape-string-regexp";
-import { PullRequestInfo } from "../collectRepositoryInfo";
-import { replaceContents } from "./utils";
+import { PullRequestInfo } from "../collectRepositoryInfo/index.js";
+import { replaceContents } from "./utils.js";
 
 const email = "mackerel-developers@hatena.ne.jp";
 const name = "mackerel";

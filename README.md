@@ -60,4 +60,3 @@ with:
 env:
   RUNNER_DEBUG: 1
 ```
-
