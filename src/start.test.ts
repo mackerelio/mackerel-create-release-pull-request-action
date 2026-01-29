@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { PullRequestInfo } from "./collectRepositoryInfo";
 import { start, validateNextVersion } from "./start";
 

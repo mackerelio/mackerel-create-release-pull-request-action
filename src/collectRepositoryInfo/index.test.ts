@@ -1,5 +1,6 @@
 import { exec } from "@actions/exec";
 import { context } from "@actions/github";
+import { jest } from "@jest/globals";
 import {
   mergedPullRequests,
   getLatestReleaseVersion,
