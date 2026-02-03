@@ -8,9 +8,9 @@ import {
   getOwnerAndRepo,
   gitDiff,
   PullRequestInfo,
-} from "./collectRepositoryInfo";
-import { finish, send } from "./finish";
-import { start } from "./start";
+} from "./collectRepositoryInfo/index.js";
+import { finish, send } from "./finish.js";
+import { start } from "./start.js";
 import {
   bumpVersionGo,
   bumpMakefile,
@@ -18,7 +18,7 @@ import {
   updateRpmPackageChangelog,
   updateMarkdownChangelog,
   validatePackageName,
-} from "./updateFiles";
+} from "./updateFiles/index.js";
 
 async function updateFiles(params: {
   nextVersion: string;

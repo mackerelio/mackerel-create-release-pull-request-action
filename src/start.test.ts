@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { PullRequestInfo } from "./collectRepositoryInfo";
 import { start, validateNextVersion } from "./start";
 
@@ -26,10 +27,12 @@ describe("validateNextVersion", () => {
     ["0.100.0", true],
   ])("validateNextVersion : %s is %s", (nextVersion, success) => {
     if (success) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(() => {
         validateNextVersion(currentVersion, nextVersion);
       }).not.toThrow();
     } else {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(() => {
         validateNextVersion(currentVersion, nextVersion);
       }).toThrow(`${nextVersion} is smaller than current version ${currentVersion}`);
