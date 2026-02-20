@@ -36573,7 +36573,7 @@ function requireScope () {
 	(function (exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.ValueScope = exports$1.ValueScopeName = exports$1.Scope = exports$1.varKinds = exports$1.UsedValueState = void 0;
-		const code_1 = requireCode$1();
+		const code_1 = /*@__PURE__*/ requireCode$1();
 		class ValueError extends Error {
 		    constructor(name) {
 		        super(`CodeGen: "code" for ${name} not defined`);
@@ -36725,9 +36725,9 @@ function requireCodegen () {
 	(function (exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.or = exports$1.and = exports$1.not = exports$1.CodeGen = exports$1.operators = exports$1.varKinds = exports$1.ValueScopeName = exports$1.ValueScope = exports$1.Scope = exports$1.Name = exports$1.regexpCode = exports$1.stringify = exports$1.getProperty = exports$1.nil = exports$1.strConcat = exports$1.str = exports$1._ = void 0;
-		const code_1 = requireCode$1();
-		const scope_1 = requireScope();
-		var code_2 = requireCode$1();
+		const code_1 = /*@__PURE__*/ requireCode$1();
+		const scope_1 = /*@__PURE__*/ requireScope();
+		var code_2 = /*@__PURE__*/ requireCode$1();
 		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return code_2._; } });
 		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return code_2.str; } });
 		Object.defineProperty(exports$1, "strConcat", { enumerable: true, get: function () { return code_2.strConcat; } });
@@ -36736,7 +36736,7 @@ function requireCodegen () {
 		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return code_2.stringify; } });
 		Object.defineProperty(exports$1, "regexpCode", { enumerable: true, get: function () { return code_2.regexpCode; } });
 		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return code_2.Name; } });
-		var scope_2 = requireScope();
+		var scope_2 = /*@__PURE__*/ requireScope();
 		Object.defineProperty(exports$1, "Scope", { enumerable: true, get: function () { return scope_2.Scope; } });
 		Object.defineProperty(exports$1, "ValueScope", { enumerable: true, get: function () { return scope_2.ValueScope; } });
 		Object.defineProperty(exports$1, "ValueScopeName", { enumerable: true, get: function () { return scope_2.ValueScopeName; } });
@@ -37432,8 +37432,8 @@ function requireUtil () {
 	hasRequiredUtil = 1;
 	Object.defineProperty(util, "__esModule", { value: true });
 	util.checkStrictMode = util.getErrorPath = util.Type = util.useFunc = util.setEvaluated = util.evaluatedPropsToName = util.mergeEvaluated = util.eachItem = util.unescapeJsonPointer = util.escapeJsonPointer = util.escapeFragment = util.unescapeFragment = util.schemaRefOrVal = util.schemaHasRulesButRef = util.schemaHasRules = util.checkUnknownRules = util.alwaysValidSchema = util.toHash = void 0;
-	const codegen_1 = requireCodegen();
-	const code_1 = requireCode$1();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const code_1 = /*@__PURE__*/ requireCode$1();
 	// TODO refactor to use Set
 	function toHash(arr) {
 	    const hash = {};
@@ -37618,7 +37618,7 @@ function requireNames () {
 	if (hasRequiredNames) return names;
 	hasRequiredNames = 1;
 	Object.defineProperty(names, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const names$1 = {
 	    // validation function arguments
 	    data: new codegen_1.Name("data"), // data passed to validation function
@@ -37655,9 +37655,9 @@ function requireErrors () {
 	(function (exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.extendErrors = exports$1.resetErrorsCount = exports$1.reportExtraError = exports$1.reportError = exports$1.keyword$DataError = exports$1.keywordError = void 0;
-		const codegen_1 = requireCodegen();
-		const util_1 = requireUtil();
-		const names_1 = requireNames();
+		const codegen_1 = /*@__PURE__*/ requireCodegen();
+		const util_1 = /*@__PURE__*/ requireUtil();
+		const names_1 = /*@__PURE__*/ requireNames();
 		exports$1.keywordError = {
 		    message: ({ keyword }) => (0, codegen_1.str) `must pass "${keyword}" keyword validation`,
 		};
@@ -37786,9 +37786,9 @@ function requireBoolSchema () {
 	hasRequiredBoolSchema = 1;
 	Object.defineProperty(boolSchema, "__esModule", { value: true });
 	boolSchema.boolOrEmptySchema = boolSchema.topBoolOrEmptySchema = void 0;
-	const errors_1 = requireErrors();
-	const codegen_1 = requireCodegen();
-	const names_1 = requireNames();
+	const errors_1 = /*@__PURE__*/ requireErrors();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const names_1 = /*@__PURE__*/ requireNames();
 	const boolError = {
 	    message: "boolean schema is false",
 	};
@@ -37908,11 +37908,11 @@ function requireDataType () {
 	hasRequiredDataType = 1;
 	Object.defineProperty(dataType, "__esModule", { value: true });
 	dataType.reportTypeError = dataType.checkDataTypes = dataType.checkDataType = dataType.coerceAndCheckDataType = dataType.getJSONTypes = dataType.getSchemaTypes = dataType.DataType = void 0;
-	const rules_1 = requireRules();
-	const applicability_1 = requireApplicability();
-	const errors_1 = requireErrors();
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const rules_1 = /*@__PURE__*/ requireRules();
+	const applicability_1 = /*@__PURE__*/ requireApplicability();
+	const errors_1 = /*@__PURE__*/ requireErrors();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	var DataType;
 	(function (DataType) {
 	    DataType[DataType["Correct"] = 0] = "Correct";
@@ -38120,8 +38120,8 @@ function requireDefaults () {
 	hasRequiredDefaults = 1;
 	Object.defineProperty(defaults, "__esModule", { value: true });
 	defaults.assignDefaults = void 0;
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	function assignDefaults(it, ty) {
 	    const { properties, items } = it.schema;
 	    if (ty === "object" && properties) {
@@ -38166,10 +38166,10 @@ function requireCode () {
 	hasRequiredCode = 1;
 	Object.defineProperty(code, "__esModule", { value: true });
 	code.validateUnion = code.validateArray = code.usePattern = code.callValidateCode = code.schemaProperties = code.allSchemaProperties = code.noPropertyInData = code.propertyInData = code.isOwnProperty = code.hasPropFunc = code.reportMissingProp = code.checkMissingProp = code.checkReportMissingProp = void 0;
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const names_1 = requireNames();
-	const util_2 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const util_2 = /*@__PURE__*/ requireUtil();
 	function checkReportMissingProp(cxt, prop) {
 	    const { gen, data, it } = cxt;
 	    gen.if(noPropertyInData(gen, data, prop, it.opts.ownProperties), () => {
@@ -38304,10 +38304,10 @@ function requireKeyword () {
 	hasRequiredKeyword = 1;
 	Object.defineProperty(keyword, "__esModule", { value: true });
 	keyword.validateKeywordUsage = keyword.validSchemaType = keyword.funcKeywordCode = keyword.macroKeywordCode = void 0;
-	const codegen_1 = requireCodegen();
-	const names_1 = requireNames();
-	const code_1 = requireCode();
-	const errors_1 = requireErrors();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const errors_1 = /*@__PURE__*/ requireErrors();
 	function macroKeywordCode(cxt, def) {
 	    const { gen, keyword, schema, parentSchema, it } = cxt;
 	    const macroSchema = def.macro.call(it.self, schema, parentSchema, it);
@@ -38437,8 +38437,8 @@ function requireSubschema () {
 	hasRequiredSubschema = 1;
 	Object.defineProperty(subschema, "__esModule", { value: true });
 	subschema.extendSubschemaMode = subschema.extendSubschemaData = subschema.getSubschema = void 0;
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	function getSubschema(it, { keyword, schemaProp, schema, schemaPath, errSchemaPath, topSchemaRef }) {
 	    if (keyword !== undefined && schema !== undefined) {
 	        throw new Error('both "keyword" and "schema" passed, only one allowed');
@@ -38683,7 +38683,7 @@ function requireResolve () {
 	hasRequiredResolve = 1;
 	Object.defineProperty(resolve, "__esModule", { value: true });
 	resolve.getSchemaRefs = resolve.resolveUrl = resolve.normalizeId = resolve._getFullPath = resolve.getFullPath = resolve.inlineRef = void 0;
-	const util_1 = requireUtil();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const equal = requireFastDeepEqual();
 	const traverse = requireJsonSchemaTraverse();
 	// TODO refactor to use keyword definitions
@@ -38845,18 +38845,18 @@ function requireValidate () {
 	hasRequiredValidate = 1;
 	Object.defineProperty(validate, "__esModule", { value: true });
 	validate.getData = validate.KeywordCxt = validate.validateFunctionCode = void 0;
-	const boolSchema_1 = requireBoolSchema();
-	const dataType_1 = requireDataType();
-	const applicability_1 = requireApplicability();
-	const dataType_2 = requireDataType();
-	const defaults_1 = requireDefaults();
-	const keyword_1 = requireKeyword();
-	const subschema_1 = requireSubschema();
-	const codegen_1 = requireCodegen();
-	const names_1 = requireNames();
-	const resolve_1 = requireResolve();
-	const util_1 = requireUtil();
-	const errors_1 = requireErrors();
+	const boolSchema_1 = /*@__PURE__*/ requireBoolSchema();
+	const dataType_1 = /*@__PURE__*/ requireDataType();
+	const applicability_1 = /*@__PURE__*/ requireApplicability();
+	const dataType_2 = /*@__PURE__*/ requireDataType();
+	const defaults_1 = /*@__PURE__*/ requireDefaults();
+	const keyword_1 = /*@__PURE__*/ requireKeyword();
+	const subschema_1 = /*@__PURE__*/ requireSubschema();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const resolve_1 = /*@__PURE__*/ requireResolve();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const errors_1 = /*@__PURE__*/ requireErrors();
 	// schema compilation - generates validation function, subschemaCode (below) is used for subschemas
 	function validateFunctionCode(it) {
 	    if (isSchemaObj(it)) {
@@ -39392,7 +39392,7 @@ function requireRef_error () {
 	if (hasRequiredRef_error) return ref_error;
 	hasRequiredRef_error = 1;
 	Object.defineProperty(ref_error, "__esModule", { value: true });
-	const resolve_1 = requireResolve();
+	const resolve_1 = /*@__PURE__*/ requireResolve();
 	class MissingRefError extends Error {
 	    constructor(resolver, baseId, ref, msg) {
 	        super(msg || `can't resolve reference ${ref} from id ${baseId}`);
@@ -39414,12 +39414,12 @@ function requireCompile () {
 	hasRequiredCompile = 1;
 	Object.defineProperty(compile, "__esModule", { value: true });
 	compile.resolveSchema = compile.getCompilingSchema = compile.resolveRef = compile.compileSchema = compile.SchemaEnv = void 0;
-	const codegen_1 = requireCodegen();
-	const validation_error_1 = requireValidation_error();
-	const names_1 = requireNames();
-	const resolve_1 = requireResolve();
-	const util_1 = requireUtil();
-	const validate_1 = requireValidate();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const validation_error_1 = /*@__PURE__*/ requireValidation_error();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const resolve_1 = /*@__PURE__*/ requireResolve();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const validate_1 = /*@__PURE__*/ requireValidate();
 	class SchemaEnv {
 	    constructor(env) {
 	        var _a;
@@ -40675,25 +40675,25 @@ function requireCore$1 () {
 	(function (exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.CodeGen = exports$1.Name = exports$1.nil = exports$1.stringify = exports$1.str = exports$1._ = exports$1.KeywordCxt = void 0;
-		var validate_1 = requireValidate();
+		var validate_1 = /*@__PURE__*/ requireValidate();
 		Object.defineProperty(exports$1, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
-		var codegen_1 = requireCodegen();
+		var codegen_1 = /*@__PURE__*/ requireCodegen();
 		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return codegen_1._; } });
 		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return codegen_1.str; } });
 		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
 		Object.defineProperty(exports$1, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
 		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
 		Object.defineProperty(exports$1, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
-		const validation_error_1 = requireValidation_error();
-		const ref_error_1 = requireRef_error();
-		const rules_1 = requireRules();
-		const compile_1 = requireCompile();
-		const codegen_2 = requireCodegen();
-		const resolve_1 = requireResolve();
-		const dataType_1 = requireDataType();
-		const util_1 = requireUtil();
+		const validation_error_1 = /*@__PURE__*/ requireValidation_error();
+		const ref_error_1 = /*@__PURE__*/ requireRef_error();
+		const rules_1 = /*@__PURE__*/ requireRules();
+		const compile_1 = /*@__PURE__*/ requireCompile();
+		const codegen_2 = /*@__PURE__*/ requireCodegen();
+		const resolve_1 = /*@__PURE__*/ requireResolve();
+		const dataType_1 = /*@__PURE__*/ requireDataType();
+		const util_1 = /*@__PURE__*/ requireUtil();
 		const $dataRefSchema = require$$9;
-		const uri_1 = requireUri();
+		const uri_1 = /*@__PURE__*/ requireUri();
 		const defaultRegExp = (str, flags) => new RegExp(str, flags);
 		defaultRegExp.code = "new RegExp";
 		const META_IGNORE_OPTIONS = ["removeAdditional", "useDefaults", "coerceTypes"];
@@ -41326,12 +41326,12 @@ function requireRef () {
 	hasRequiredRef = 1;
 	Object.defineProperty(ref, "__esModule", { value: true });
 	ref.callRef = ref.getValidate = void 0;
-	const ref_error_1 = requireRef_error();
-	const code_1 = requireCode();
-	const codegen_1 = requireCodegen();
-	const names_1 = requireNames();
-	const compile_1 = requireCompile();
-	const util_1 = requireUtil();
+	const ref_error_1 = /*@__PURE__*/ requireRef_error();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const compile_1 = /*@__PURE__*/ requireCompile();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const def = {
 	    keyword: "$ref",
 	    schemaType: "string",
@@ -41454,8 +41454,8 @@ function requireCore () {
 	if (hasRequiredCore) return core;
 	hasRequiredCore = 1;
 	Object.defineProperty(core, "__esModule", { value: true });
-	const id_1 = requireId();
-	const ref_1 = requireRef();
+	const id_1 = /*@__PURE__*/ requireId();
+	const ref_1 = /*@__PURE__*/ requireRef();
 	const core$1 = [
 	    "$schema",
 	    "$id",
@@ -41481,7 +41481,7 @@ function requireLimitNumber () {
 	if (hasRequiredLimitNumber) return limitNumber;
 	hasRequiredLimitNumber = 1;
 	Object.defineProperty(limitNumber, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const ops = codegen_1.operators;
 	const KWDs = {
 	    maximum: { okStr: "<=", ok: ops.LTE, fail: ops.GT },
@@ -41517,7 +41517,7 @@ function requireMultipleOf () {
 	if (hasRequiredMultipleOf) return multipleOf;
 	hasRequiredMultipleOf = 1;
 	Object.defineProperty(multipleOf, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const error = {
 	    message: ({ schemaCode }) => (0, codegen_1.str) `must be multiple of ${schemaCode}`,
 	    params: ({ schemaCode }) => (0, codegen_1._) `{multipleOf: ${schemaCode}}`,
@@ -41585,9 +41585,9 @@ function requireLimitLength () {
 	if (hasRequiredLimitLength) return limitLength;
 	hasRequiredLimitLength = 1;
 	Object.defineProperty(limitLength, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const ucs2length_1 = requireUcs2length();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const ucs2length_1 = /*@__PURE__*/ requireUcs2length();
 	const error = {
 	    message({ keyword, schemaCode }) {
 	        const comp = keyword === "maxLength" ? "more" : "fewer";
@@ -41621,8 +41621,9 @@ function requirePattern () {
 	if (hasRequiredPattern) return pattern;
 	hasRequiredPattern = 1;
 	Object.defineProperty(pattern, "__esModule", { value: true });
-	const code_1 = requireCode();
-	const codegen_1 = requireCodegen();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const error = {
 	    message: ({ schemaCode }) => (0, codegen_1.str) `must match pattern "${schemaCode}"`,
 	    params: ({ schemaCode }) => (0, codegen_1._) `{pattern: ${schemaCode}}`,
@@ -41634,11 +41635,19 @@ function requirePattern () {
 	    $data: true,
 	    error,
 	    code(cxt) {
-	        const { data, $data, schema, schemaCode, it } = cxt;
-	        // TODO regexp should be wrapped in try/catchs
+	        const { gen, data, $data, schema, schemaCode, it } = cxt;
 	        const u = it.opts.unicodeRegExp ? "u" : "";
-	        const regExp = $data ? (0, codegen_1._) `(new RegExp(${schemaCode}, ${u}))` : (0, code_1.usePattern)(cxt, schema);
-	        cxt.fail$data((0, codegen_1._) `!${regExp}.test(${data})`);
+	        if ($data) {
+	            const { regExp } = it.opts.code;
+	            const regExpCode = regExp.code === "new RegExp" ? (0, codegen_1._) `new RegExp` : (0, util_1.useFunc)(gen, regExp);
+	            const valid = gen.let("valid");
+	            gen.try(() => gen.assign(valid, (0, codegen_1._) `${regExpCode}(${schemaCode}, ${u}).test(${data})`), () => gen.assign(valid, false));
+	            cxt.fail$data((0, codegen_1._) `!${valid}`);
+	        }
+	        else {
+	            const regExp = (0, code_1.usePattern)(cxt, schema);
+	            cxt.fail$data((0, codegen_1._) `!${regExp}.test(${data})`);
+	        }
 	    },
 	};
 	pattern.default = def;
@@ -41654,7 +41663,7 @@ function requireLimitProperties () {
 	if (hasRequiredLimitProperties) return limitProperties;
 	hasRequiredLimitProperties = 1;
 	Object.defineProperty(limitProperties, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const error = {
 	    message({ keyword, schemaCode }) {
 	        const comp = keyword === "maxProperties" ? "more" : "fewer";
@@ -41687,9 +41696,9 @@ function requireRequired () {
 	if (hasRequiredRequired) return required;
 	hasRequiredRequired = 1;
 	Object.defineProperty(required, "__esModule", { value: true });
-	const code_1 = requireCode();
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: ({ params: { missingProperty } }) => (0, codegen_1.str) `must have required property '${missingProperty}'`,
 	    params: ({ params: { missingProperty } }) => (0, codegen_1._) `{missingProperty: ${missingProperty}}`,
@@ -41775,7 +41784,7 @@ function requireLimitItems () {
 	if (hasRequiredLimitItems) return limitItems;
 	hasRequiredLimitItems = 1;
 	Object.defineProperty(limitItems, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const error = {
 	    message({ keyword, schemaCode }) {
 	        const comp = keyword === "maxItems" ? "more" : "fewer";
@@ -41824,10 +41833,10 @@ function requireUniqueItems () {
 	if (hasRequiredUniqueItems) return uniqueItems;
 	hasRequiredUniqueItems = 1;
 	Object.defineProperty(uniqueItems, "__esModule", { value: true });
-	const dataType_1 = requireDataType();
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const equal_1 = requireEqual();
+	const dataType_1 = /*@__PURE__*/ requireDataType();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const equal_1 = /*@__PURE__*/ requireEqual();
 	const error = {
 	    message: ({ params: { i, j } }) => (0, codegen_1.str) `must NOT have duplicate items (items ## ${j} and ${i} are identical)`,
 	    params: ({ params: { i, j } }) => (0, codegen_1._) `{i: ${i}, j: ${j}}`,
@@ -41897,9 +41906,9 @@ function require_const () {
 	if (hasRequired_const) return _const;
 	hasRequired_const = 1;
 	Object.defineProperty(_const, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const equal_1 = requireEqual();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const equal_1 = /*@__PURE__*/ requireEqual();
 	const error = {
 	    message: "must be equal to constant",
 	    params: ({ schemaCode }) => (0, codegen_1._) `{allowedValue: ${schemaCode}}`,
@@ -41931,9 +41940,9 @@ function require_enum () {
 	if (hasRequired_enum) return _enum;
 	hasRequired_enum = 1;
 	Object.defineProperty(_enum, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const equal_1 = requireEqual();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const equal_1 = /*@__PURE__*/ requireEqual();
 	const error = {
 	    message: "must be equal to one of the allowed values",
 	    params: ({ schemaCode }) => (0, codegen_1._) `{allowedValues: ${schemaCode}}`,
@@ -41986,16 +41995,16 @@ function requireValidation () {
 	if (hasRequiredValidation) return validation;
 	hasRequiredValidation = 1;
 	Object.defineProperty(validation, "__esModule", { value: true });
-	const limitNumber_1 = requireLimitNumber();
-	const multipleOf_1 = requireMultipleOf();
-	const limitLength_1 = requireLimitLength();
-	const pattern_1 = requirePattern();
-	const limitProperties_1 = requireLimitProperties();
-	const required_1 = requireRequired();
-	const limitItems_1 = requireLimitItems();
-	const uniqueItems_1 = requireUniqueItems();
-	const const_1 = require_const();
-	const enum_1 = require_enum();
+	const limitNumber_1 = /*@__PURE__*/ requireLimitNumber();
+	const multipleOf_1 = /*@__PURE__*/ requireMultipleOf();
+	const limitLength_1 = /*@__PURE__*/ requireLimitLength();
+	const pattern_1 = /*@__PURE__*/ requirePattern();
+	const limitProperties_1 = /*@__PURE__*/ requireLimitProperties();
+	const required_1 = /*@__PURE__*/ requireRequired();
+	const limitItems_1 = /*@__PURE__*/ requireLimitItems();
+	const uniqueItems_1 = /*@__PURE__*/ requireUniqueItems();
+	const const_1 = /*@__PURE__*/ require_const();
+	const enum_1 = /*@__PURE__*/ require_enum();
 	const validation$1 = [
 	    // number
 	    limitNumber_1.default,
@@ -42031,8 +42040,8 @@ function requireAdditionalItems () {
 	hasRequiredAdditionalItems = 1;
 	Object.defineProperty(additionalItems, "__esModule", { value: true });
 	additionalItems.validateAdditionalItems = void 0;
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: ({ params: { len } }) => (0, codegen_1.str) `must NOT have more than ${len} items`,
 	    params: ({ params: { len } }) => (0, codegen_1._) `{limit: ${len}}`,
@@ -42091,9 +42100,9 @@ function requireItems () {
 	hasRequiredItems = 1;
 	Object.defineProperty(items, "__esModule", { value: true });
 	items.validateTuple = void 0;
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const code_1 = requireCode();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const code_1 = /*@__PURE__*/ requireCode();
 	const def = {
 	    keyword: "items",
 	    type: "array",
@@ -42149,7 +42158,7 @@ function requirePrefixItems () {
 	if (hasRequiredPrefixItems) return prefixItems;
 	hasRequiredPrefixItems = 1;
 	Object.defineProperty(prefixItems, "__esModule", { value: true });
-	const items_1 = requireItems();
+	const items_1 = /*@__PURE__*/ requireItems();
 	const def = {
 	    keyword: "prefixItems",
 	    type: "array",
@@ -42170,10 +42179,10 @@ function requireItems2020 () {
 	if (hasRequiredItems2020) return items2020;
 	hasRequiredItems2020 = 1;
 	Object.defineProperty(items2020, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const code_1 = requireCode();
-	const additionalItems_1 = requireAdditionalItems();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const additionalItems_1 = /*@__PURE__*/ requireAdditionalItems();
 	const error = {
 	    message: ({ params: { len } }) => (0, codegen_1.str) `must NOT have more than ${len} items`,
 	    params: ({ params: { len } }) => (0, codegen_1._) `{limit: ${len}}`,
@@ -42209,8 +42218,8 @@ function requireContains () {
 	if (hasRequiredContains) return contains;
 	hasRequiredContains = 1;
 	Object.defineProperty(contains, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: ({ params: { min, max } }) => max === undefined
 	        ? (0, codegen_1.str) `must contain at least ${min} valid item(s)`
@@ -42315,9 +42324,9 @@ function requireDependencies () {
 	(function (exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.validateSchemaDeps = exports$1.validatePropertyDeps = exports$1.error = void 0;
-		const codegen_1 = requireCodegen();
-		const util_1 = requireUtil();
-		const code_1 = requireCode();
+		const codegen_1 = /*@__PURE__*/ requireCodegen();
+		const util_1 = /*@__PURE__*/ requireUtil();
+		const code_1 = /*@__PURE__*/ requireCode();
 		exports$1.error = {
 		    message: ({ params: { property, depsCount, deps } }) => {
 		        const property_ies = depsCount === 1 ? "property" : "properties";
@@ -42409,8 +42418,8 @@ function requirePropertyNames () {
 	if (hasRequiredPropertyNames) return propertyNames;
 	hasRequiredPropertyNames = 1;
 	Object.defineProperty(propertyNames, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: "property name must be valid",
 	    params: ({ params }) => (0, codegen_1._) `{propertyName: ${params.propertyName}}`,
@@ -42456,10 +42465,10 @@ function requireAdditionalProperties () {
 	if (hasRequiredAdditionalProperties) return additionalProperties;
 	hasRequiredAdditionalProperties = 1;
 	Object.defineProperty(additionalProperties, "__esModule", { value: true });
-	const code_1 = requireCode();
-	const codegen_1 = requireCodegen();
-	const names_1 = requireNames();
-	const util_1 = requireUtil();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const names_1 = /*@__PURE__*/ requireNames();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: "must NOT have additional properties",
 	    params: ({ params }) => (0, codegen_1._) `{additionalProperty: ${params.additionalProperty}}`,
@@ -42571,10 +42580,10 @@ function requireProperties () {
 	if (hasRequiredProperties) return properties$1;
 	hasRequiredProperties = 1;
 	Object.defineProperty(properties$1, "__esModule", { value: true });
-	const validate_1 = requireValidate();
-	const code_1 = requireCode();
-	const util_1 = requireUtil();
-	const additionalProperties_1 = requireAdditionalProperties();
+	const validate_1 = /*@__PURE__*/ requireValidate();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const additionalProperties_1 = /*@__PURE__*/ requireAdditionalProperties();
 	const def = {
 	    keyword: "properties",
 	    type: "object",
@@ -42634,10 +42643,10 @@ function requirePatternProperties () {
 	if (hasRequiredPatternProperties) return patternProperties;
 	hasRequiredPatternProperties = 1;
 	Object.defineProperty(patternProperties, "__esModule", { value: true });
-	const code_1 = requireCode();
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
-	const util_2 = requireUtil();
+	const code_1 = /*@__PURE__*/ requireCode();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
+	const util_2 = /*@__PURE__*/ requireUtil();
 	const def = {
 	    keyword: "patternProperties",
 	    type: "object",
@@ -42718,7 +42727,7 @@ function requireNot () {
 	if (hasRequiredNot) return not;
 	hasRequiredNot = 1;
 	Object.defineProperty(not, "__esModule", { value: true });
-	const util_1 = requireUtil();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const def = {
 	    keyword: "not",
 	    schemaType: ["object", "boolean"],
@@ -42753,7 +42762,7 @@ function requireAnyOf () {
 	if (hasRequiredAnyOf) return anyOf;
 	hasRequiredAnyOf = 1;
 	Object.defineProperty(anyOf, "__esModule", { value: true });
-	const code_1 = requireCode();
+	const code_1 = /*@__PURE__*/ requireCode();
 	const def = {
 	    keyword: "anyOf",
 	    schemaType: "array",
@@ -42774,8 +42783,8 @@ function requireOneOf () {
 	if (hasRequiredOneOf) return oneOf;
 	hasRequiredOneOf = 1;
 	Object.defineProperty(oneOf, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: "must match exactly one schema in oneOf",
 	    params: ({ params }) => (0, codegen_1._) `{passingSchemas: ${params.passing}}`,
@@ -42843,7 +42852,7 @@ function requireAllOf () {
 	if (hasRequiredAllOf) return allOf;
 	hasRequiredAllOf = 1;
 	Object.defineProperty(allOf, "__esModule", { value: true });
-	const util_1 = requireUtil();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const def = {
 	    keyword: "allOf",
 	    schemaType: "array",
@@ -42875,8 +42884,8 @@ function require_if () {
 	if (hasRequired_if) return _if;
 	hasRequired_if = 1;
 	Object.defineProperty(_if, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: ({ params }) => (0, codegen_1.str) `must match "${params.ifClause}" schema`,
 	    params: ({ params }) => (0, codegen_1._) `{failingKeyword: ${params.ifClause}}`,
@@ -42950,7 +42959,7 @@ function requireThenElse () {
 	if (hasRequiredThenElse) return thenElse;
 	hasRequiredThenElse = 1;
 	Object.defineProperty(thenElse, "__esModule", { value: true });
-	const util_1 = requireUtil();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const def = {
 	    keyword: ["then", "else"],
 	    schemaType: ["object", "boolean"],
@@ -42970,22 +42979,22 @@ function requireApplicator () {
 	if (hasRequiredApplicator) return applicator;
 	hasRequiredApplicator = 1;
 	Object.defineProperty(applicator, "__esModule", { value: true });
-	const additionalItems_1 = requireAdditionalItems();
-	const prefixItems_1 = requirePrefixItems();
-	const items_1 = requireItems();
-	const items2020_1 = requireItems2020();
-	const contains_1 = requireContains();
-	const dependencies_1 = requireDependencies();
-	const propertyNames_1 = requirePropertyNames();
-	const additionalProperties_1 = requireAdditionalProperties();
-	const properties_1 = requireProperties();
-	const patternProperties_1 = requirePatternProperties();
-	const not_1 = requireNot();
-	const anyOf_1 = requireAnyOf();
-	const oneOf_1 = requireOneOf();
-	const allOf_1 = requireAllOf();
-	const if_1 = require_if();
-	const thenElse_1 = requireThenElse();
+	const additionalItems_1 = /*@__PURE__*/ requireAdditionalItems();
+	const prefixItems_1 = /*@__PURE__*/ requirePrefixItems();
+	const items_1 = /*@__PURE__*/ requireItems();
+	const items2020_1 = /*@__PURE__*/ requireItems2020();
+	const contains_1 = /*@__PURE__*/ requireContains();
+	const dependencies_1 = /*@__PURE__*/ requireDependencies();
+	const propertyNames_1 = /*@__PURE__*/ requirePropertyNames();
+	const additionalProperties_1 = /*@__PURE__*/ requireAdditionalProperties();
+	const properties_1 = /*@__PURE__*/ requireProperties();
+	const patternProperties_1 = /*@__PURE__*/ requirePatternProperties();
+	const not_1 = /*@__PURE__*/ requireNot();
+	const anyOf_1 = /*@__PURE__*/ requireAnyOf();
+	const oneOf_1 = /*@__PURE__*/ requireOneOf();
+	const allOf_1 = /*@__PURE__*/ requireAllOf();
+	const if_1 = /*@__PURE__*/ require_if();
+	const thenElse_1 = /*@__PURE__*/ requireThenElse();
 	function getApplicator(draft2020 = false) {
 	    const applicator = [
 	        // any
@@ -43025,7 +43034,7 @@ function requireFormat$1 () {
 	if (hasRequiredFormat$1) return format$1;
 	hasRequiredFormat$1 = 1;
 	Object.defineProperty(format$1, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
 	const error = {
 	    message: ({ schemaCode }) => (0, codegen_1.str) `must match format "${schemaCode}"`,
 	    params: ({ schemaCode }) => (0, codegen_1._) `{format: ${schemaCode}}`,
@@ -43124,7 +43133,7 @@ function requireFormat () {
 	if (hasRequiredFormat) return format$2;
 	hasRequiredFormat = 1;
 	Object.defineProperty(format$2, "__esModule", { value: true });
-	const format_1 = requireFormat$1();
+	const format_1 = /*@__PURE__*/ requireFormat$1();
 	const format = [format_1.default];
 	format$2.default = format;
 	
@@ -43164,11 +43173,11 @@ function requireDraft7 () {
 	if (hasRequiredDraft7) return draft7;
 	hasRequiredDraft7 = 1;
 	Object.defineProperty(draft7, "__esModule", { value: true });
-	const core_1 = requireCore();
-	const validation_1 = requireValidation();
-	const applicator_1 = requireApplicator();
-	const format_1 = requireFormat();
-	const metadata_1 = requireMetadata();
+	const core_1 = /*@__PURE__*/ requireCore();
+	const validation_1 = /*@__PURE__*/ requireValidation();
+	const applicator_1 = /*@__PURE__*/ requireApplicator();
+	const format_1 = /*@__PURE__*/ requireFormat();
+	const metadata_1 = /*@__PURE__*/ requireMetadata();
 	const draft7Vocabularies = [
 	    core_1.default,
 	    validation_1.default,
@@ -43208,11 +43217,11 @@ function requireDiscriminator () {
 	if (hasRequiredDiscriminator) return discriminator;
 	hasRequiredDiscriminator = 1;
 	Object.defineProperty(discriminator, "__esModule", { value: true });
-	const codegen_1 = requireCodegen();
-	const types_1 = requireTypes();
-	const compile_1 = requireCompile();
-	const ref_error_1 = requireRef_error();
-	const util_1 = requireUtil();
+	const codegen_1 = /*@__PURE__*/ requireCodegen();
+	const types_1 = /*@__PURE__*/ requireTypes();
+	const compile_1 = /*@__PURE__*/ requireCompile();
+	const ref_error_1 = /*@__PURE__*/ requireRef_error();
+	const util_1 = /*@__PURE__*/ requireUtil();
 	const error = {
 	    message: ({ params: { discrError, tagName } }) => discrError === types_1.DiscrError.Tag
 	        ? `tag "${tagName}" must be string`
@@ -43573,9 +43582,9 @@ function requireAjv () {
 	(function (module, exports$1) {
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.MissingRefError = exports$1.ValidationError = exports$1.CodeGen = exports$1.Name = exports$1.nil = exports$1.stringify = exports$1.str = exports$1._ = exports$1.KeywordCxt = exports$1.Ajv = void 0;
-		const core_1 = requireCore$1();
-		const draft7_1 = requireDraft7();
-		const discriminator_1 = requireDiscriminator();
+		const core_1 = /*@__PURE__*/ requireCore$1();
+		const draft7_1 = /*@__PURE__*/ requireDraft7();
+		const discriminator_1 = /*@__PURE__*/ requireDiscriminator();
 		const draft7MetaSchema = require$$3;
 		const META_SUPPORT_DATA = ["/properties"];
 		const META_SCHEMA_ID = "http://json-schema.org/draft-07/schema";
@@ -43606,25 +43615,25 @@ function requireAjv () {
 		module.exports.Ajv = Ajv;
 		Object.defineProperty(exports$1, "__esModule", { value: true });
 		exports$1.default = Ajv;
-		var validate_1 = requireValidate();
+		var validate_1 = /*@__PURE__*/ requireValidate();
 		Object.defineProperty(exports$1, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
-		var codegen_1 = requireCodegen();
+		var codegen_1 = /*@__PURE__*/ requireCodegen();
 		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return codegen_1._; } });
 		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return codegen_1.str; } });
 		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
 		Object.defineProperty(exports$1, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
 		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
 		Object.defineProperty(exports$1, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
-		var validation_error_1 = requireValidation_error();
+		var validation_error_1 = /*@__PURE__*/ requireValidation_error();
 		Object.defineProperty(exports$1, "ValidationError", { enumerable: true, get: function () { return validation_error_1.default; } });
-		var ref_error_1 = requireRef_error();
+		var ref_error_1 = /*@__PURE__*/ requireRef_error();
 		Object.defineProperty(exports$1, "MissingRefError", { enumerable: true, get: function () { return ref_error_1.default; } });
 		
 	} (ajv, ajv.exports));
 	return ajv.exports;
 }
 
-var ajvExports = requireAjv();
+var ajvExports = /*@__PURE__*/ requireAjv();
 var _Ajv = /*@__PURE__*/getDefaultExportFromCjs(ajvExports);
 
 const Ajv = _Ajv;
