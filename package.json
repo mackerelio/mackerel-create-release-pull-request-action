@@ -69,7 +69,7 @@
     "snapshot-diff": "^0.10.0",
     "timezone-mock": "^1.4.2",
     "tmp-promise": "^3.0.3",
-    "ts-jest": "^29.4.6",
+    "ts-jest": "^29.4.9",
     "ts-jest-resolver": "^2.0.1",
     "typescript": "^5.9.3"
   },
