@@ -46513,29 +46513,17 @@ function cleanEscapedString(input) {
   return matched[1].replace(doubleQuoteRegExp, "'");
 }
 
-var escapeStringRegexp$1;
-var hasRequiredEscapeStringRegexp;
+function escapeStringRegexp(string) {
+	if (typeof string !== 'string') {
+		throw new TypeError('Expected a string');
+	}
 
-function requireEscapeStringRegexp () {
-	if (hasRequiredEscapeStringRegexp) return escapeStringRegexp$1;
-	hasRequiredEscapeStringRegexp = 1;
-
-	escapeStringRegexp$1 = string => {
-		if (typeof string !== 'string') {
-			throw new TypeError('Expected a string');
-		}
-
-		// Escape characters with special meaning either inside or outside character sets.
-		// Use a simple backslash escape when it’s always valid, and a \unnnn escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
-		return string
-			.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
-			.replace(/-/g, '\\x2d');
-	};
-	return escapeStringRegexp$1;
+	// Escape characters with special meaning either inside or outside character sets.
+	// Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
+	return string
+		.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
+		.replace(/-/g, '\\x2d');
 }
-
-var escapeStringRegexpExports = requireEscapeStringRegexp();
-var escapeStringRegexp = /*@__PURE__*/getDefaultExportFromCjs(escapeStringRegexpExports);
 
 /**
  * Returns a copy with defaults filled in.
