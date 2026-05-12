@@ -3576,9 +3576,9 @@ var hasRequiredConstants$4;
 function requireConstants$4 () {
 	if (hasRequiredConstants$4) return constants$4;
 	hasRequiredConstants$4 = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.SPECIAL_HEADERS = exports$1.HEADER_STATE = exports$1.MINOR = exports$1.MAJOR = exports$1.CONNECTION_TOKEN_CHARS = exports$1.HEADER_CHARS = exports$1.TOKEN = exports$1.STRICT_TOKEN = exports$1.HEX = exports$1.URL_CHAR = exports$1.STRICT_URL_CHAR = exports$1.USERINFO_CHARS = exports$1.MARK = exports$1.ALPHANUM = exports$1.NUM = exports$1.HEX_MAP = exports$1.NUM_MAP = exports$1.ALPHA = exports$1.FINISH = exports$1.H_METHOD_MAP = exports$1.METHOD_MAP = exports$1.METHODS_RTSP = exports$1.METHODS_ICE = exports$1.METHODS_HTTP = exports$1.METHODS = exports$1.LENIENT_FLAGS = exports$1.FLAGS = exports$1.TYPE = exports$1.ERROR = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.SPECIAL_HEADERS = exports.HEADER_STATE = exports.MINOR = exports.MAJOR = exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS = exports.TOKEN = exports.STRICT_TOKEN = exports.HEX = exports.URL_CHAR = exports.STRICT_URL_CHAR = exports.USERINFO_CHARS = exports.MARK = exports.ALPHANUM = exports.NUM = exports.HEX_MAP = exports.NUM_MAP = exports.ALPHA = exports.FINISH = exports.H_METHOD_MAP = exports.METHOD_MAP = exports.METHODS_RTSP = exports.METHODS_ICE = exports.METHODS_HTTP = exports.METHODS = exports.LENIENT_FLAGS = exports.FLAGS = exports.TYPE = exports.ERROR = void 0;
 		const utils_1 = requireUtils$1();
 		(function (ERROR) {
 		    ERROR[ERROR["OK"] = 0] = "OK";
@@ -3606,12 +3606,12 @@ function requireConstants$4 () {
 		    ERROR[ERROR["PAUSED_UPGRADE"] = 22] = "PAUSED_UPGRADE";
 		    ERROR[ERROR["PAUSED_H2_UPGRADE"] = 23] = "PAUSED_H2_UPGRADE";
 		    ERROR[ERROR["USER"] = 24] = "USER";
-		})(exports$1.ERROR || (exports$1.ERROR = {}));
+		})(exports.ERROR || (exports.ERROR = {}));
 		(function (TYPE) {
 		    TYPE[TYPE["BOTH"] = 0] = "BOTH";
 		    TYPE[TYPE["REQUEST"] = 1] = "REQUEST";
 		    TYPE[TYPE["RESPONSE"] = 2] = "RESPONSE";
-		})(exports$1.TYPE || (exports$1.TYPE = {}));
+		})(exports.TYPE || (exports.TYPE = {}));
 		(function (FLAGS) {
 		    FLAGS[FLAGS["CONNECTION_KEEP_ALIVE"] = 1] = "CONNECTION_KEEP_ALIVE";
 		    FLAGS[FLAGS["CONNECTION_CLOSE"] = 2] = "CONNECTION_CLOSE";
@@ -3623,12 +3623,12 @@ function requireConstants$4 () {
 		    FLAGS[FLAGS["TRAILING"] = 128] = "TRAILING";
 		    // 1 << 8 is unused
 		    FLAGS[FLAGS["TRANSFER_ENCODING"] = 512] = "TRANSFER_ENCODING";
-		})(exports$1.FLAGS || (exports$1.FLAGS = {}));
+		})(exports.FLAGS || (exports.FLAGS = {}));
 		(function (LENIENT_FLAGS) {
 		    LENIENT_FLAGS[LENIENT_FLAGS["HEADERS"] = 1] = "HEADERS";
 		    LENIENT_FLAGS[LENIENT_FLAGS["CHUNKED_LENGTH"] = 2] = "CHUNKED_LENGTH";
 		    LENIENT_FLAGS[LENIENT_FLAGS["KEEP_ALIVE"] = 4] = "KEEP_ALIVE";
-		})(exports$1.LENIENT_FLAGS || (exports$1.LENIENT_FLAGS = {}));
+		})(exports.LENIENT_FLAGS || (exports.LENIENT_FLAGS = {}));
 		var METHODS;
 		(function (METHODS) {
 		    METHODS[METHODS["DELETE"] = 0] = "DELETE";
@@ -3688,8 +3688,8 @@ function requireConstants$4 () {
 		    METHODS[METHODS["RECORD"] = 44] = "RECORD";
 		    /* RAOP */
 		    METHODS[METHODS["FLUSH"] = 45] = "FLUSH";
-		})(METHODS = exports$1.METHODS || (exports$1.METHODS = {}));
-		exports$1.METHODS_HTTP = [
+		})(METHODS = exports.METHODS || (exports.METHODS = {}));
+		exports.METHODS_HTTP = [
 		    METHODS.DELETE,
 		    METHODS.GET,
 		    METHODS.HEAD,
@@ -3727,10 +3727,10 @@ function requireConstants$4 () {
 		    // TODO(indutny): should we allow it with HTTP?
 		    METHODS.SOURCE,
 		];
-		exports$1.METHODS_ICE = [
+		exports.METHODS_ICE = [
 		    METHODS.SOURCE,
 		];
-		exports$1.METHODS_RTSP = [
+		exports.METHODS_RTSP = [
 		    METHODS.OPTIONS,
 		    METHODS.DESCRIBE,
 		    METHODS.ANNOUNCE,
@@ -3747,59 +3747,59 @@ function requireConstants$4 () {
 		    METHODS.GET,
 		    METHODS.POST,
 		];
-		exports$1.METHOD_MAP = utils_1.enumToMap(METHODS);
-		exports$1.H_METHOD_MAP = {};
-		Object.keys(exports$1.METHOD_MAP).forEach((key) => {
+		exports.METHOD_MAP = utils_1.enumToMap(METHODS);
+		exports.H_METHOD_MAP = {};
+		Object.keys(exports.METHOD_MAP).forEach((key) => {
 		    if (/^H/.test(key)) {
-		        exports$1.H_METHOD_MAP[key] = exports$1.METHOD_MAP[key];
+		        exports.H_METHOD_MAP[key] = exports.METHOD_MAP[key];
 		    }
 		});
 		(function (FINISH) {
 		    FINISH[FINISH["SAFE"] = 0] = "SAFE";
 		    FINISH[FINISH["SAFE_WITH_CB"] = 1] = "SAFE_WITH_CB";
 		    FINISH[FINISH["UNSAFE"] = 2] = "UNSAFE";
-		})(exports$1.FINISH || (exports$1.FINISH = {}));
-		exports$1.ALPHA = [];
+		})(exports.FINISH || (exports.FINISH = {}));
+		exports.ALPHA = [];
 		for (let i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
 		    // Upper case
-		    exports$1.ALPHA.push(String.fromCharCode(i));
+		    exports.ALPHA.push(String.fromCharCode(i));
 		    // Lower case
-		    exports$1.ALPHA.push(String.fromCharCode(i + 0x20));
+		    exports.ALPHA.push(String.fromCharCode(i + 0x20));
 		}
-		exports$1.NUM_MAP = {
+		exports.NUM_MAP = {
 		    0: 0, 1: 1, 2: 2, 3: 3, 4: 4,
 		    5: 5, 6: 6, 7: 7, 8: 8, 9: 9,
 		};
-		exports$1.HEX_MAP = {
+		exports.HEX_MAP = {
 		    0: 0, 1: 1, 2: 2, 3: 3, 4: 4,
 		    5: 5, 6: 6, 7: 7, 8: 8, 9: 9,
 		    A: 0XA, B: 0XB, C: 0XC, D: 0XD, E: 0XE, F: 0XF,
 		    a: 0xa, b: 0xb, c: 0xc, d: 0xd, e: 0xe, f: 0xf,
 		};
-		exports$1.NUM = [
+		exports.NUM = [
 		    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 		];
-		exports$1.ALPHANUM = exports$1.ALPHA.concat(exports$1.NUM);
-		exports$1.MARK = ['-', '_', '.', '!', '~', '*', '\'', '(', ')'];
-		exports$1.USERINFO_CHARS = exports$1.ALPHANUM
-		    .concat(exports$1.MARK)
+		exports.ALPHANUM = exports.ALPHA.concat(exports.NUM);
+		exports.MARK = ['-', '_', '.', '!', '~', '*', '\'', '(', ')'];
+		exports.USERINFO_CHARS = exports.ALPHANUM
+		    .concat(exports.MARK)
 		    .concat(['%', ';', ':', '&', '=', '+', '$', ',']);
 		// TODO(indutny): use RFC
-		exports$1.STRICT_URL_CHAR = [
+		exports.STRICT_URL_CHAR = [
 		    '!', '"', '$', '%', '&', '\'',
 		    '(', ')', '*', '+', ',', '-', '.', '/',
 		    ':', ';', '<', '=', '>',
 		    '@', '[', '\\', ']', '^', '_',
 		    '`',
 		    '{', '|', '}', '~',
-		].concat(exports$1.ALPHANUM);
-		exports$1.URL_CHAR = exports$1.STRICT_URL_CHAR
+		].concat(exports.ALPHANUM);
+		exports.URL_CHAR = exports.STRICT_URL_CHAR
 		    .concat(['\t', '\f']);
 		// All characters with 0x80 bit set to 1
 		for (let i = 0x80; i <= 0xff; i++) {
-		    exports$1.URL_CHAR.push(i);
+		    exports.URL_CHAR.push(i);
 		}
-		exports$1.HEX = exports$1.NUM.concat(['a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F']);
+		exports.HEX = exports.NUM.concat(['a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F']);
 		/* Tokens as defined by rfc 2616. Also lowercases them.
 		 *        token       = 1*<any CHAR except CTLs or separators>
 		 *     separators     = "(" | ")" | "<" | ">" | "@"
@@ -3807,27 +3807,27 @@ function requireConstants$4 () {
 		 *                    | "/" | "[" | "]" | "?" | "="
 		 *                    | "{" | "}" | SP | HT
 		 */
-		exports$1.STRICT_TOKEN = [
+		exports.STRICT_TOKEN = [
 		    '!', '#', '$', '%', '&', '\'',
 		    '*', '+', '-', '.',
 		    '^', '_', '`',
 		    '|', '~',
-		].concat(exports$1.ALPHANUM);
-		exports$1.TOKEN = exports$1.STRICT_TOKEN.concat([' ']);
+		].concat(exports.ALPHANUM);
+		exports.TOKEN = exports.STRICT_TOKEN.concat([' ']);
 		/*
 		 * Verify that a char is a valid visible (printable) US-ASCII
 		 * character or %x80-FF
 		 */
-		exports$1.HEADER_CHARS = ['\t'];
+		exports.HEADER_CHARS = ['\t'];
 		for (let i = 32; i <= 255; i++) {
 		    if (i !== 127) {
-		        exports$1.HEADER_CHARS.push(i);
+		        exports.HEADER_CHARS.push(i);
 		    }
 		}
 		// ',' = \x44
-		exports$1.CONNECTION_TOKEN_CHARS = exports$1.HEADER_CHARS.filter((c) => c !== 44);
-		exports$1.MAJOR = exports$1.NUM_MAP;
-		exports$1.MINOR = exports$1.MAJOR;
+		exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS.filter((c) => c !== 44);
+		exports.MAJOR = exports.NUM_MAP;
+		exports.MINOR = exports.MAJOR;
 		var HEADER_STATE;
 		(function (HEADER_STATE) {
 		    HEADER_STATE[HEADER_STATE["GENERAL"] = 0] = "GENERAL";
@@ -3839,8 +3839,8 @@ function requireConstants$4 () {
 		    HEADER_STATE[HEADER_STATE["CONNECTION_CLOSE"] = 6] = "CONNECTION_CLOSE";
 		    HEADER_STATE[HEADER_STATE["CONNECTION_UPGRADE"] = 7] = "CONNECTION_UPGRADE";
 		    HEADER_STATE[HEADER_STATE["TRANSFER_ENCODING_CHUNKED"] = 8] = "TRANSFER_ENCODING_CHUNKED";
-		})(HEADER_STATE = exports$1.HEADER_STATE || (exports$1.HEADER_STATE = {}));
-		exports$1.SPECIAL_HEADERS = {
+		})(HEADER_STATE = exports.HEADER_STATE || (exports.HEADER_STATE = {}));
+		exports.SPECIAL_HEADERS = {
 		    'connection': HEADER_STATE.CONNECTION,
 		    'content-length': HEADER_STATE.CONTENT_LENGTH,
 		    'proxy-connection': HEADER_STATE.CONNECTION,
@@ -8731,10 +8731,10 @@ function requireClientH1 () {
 	const TIMEOUT_KEEP_ALIVE = 8 | USE_NATIVE_TIMER;
 
 	class Parser {
-	  constructor (client, socket, { exports: exports$1 }) {
+	  constructor (client, socket, { exports }) {
 	    assert(Number.isFinite(client[kMaxHeadersSize]) && client[kMaxHeadersSize] > 0);
 
-	    this.llhttp = exports$1;
+	    this.llhttp = exports;
 	    this.ptr = this.llhttp.llhttp_alloc(constants.TYPE.RESPONSE);
 	    this.client = client;
 	    this.socket = socket;
@@ -33669,7 +33669,7 @@ var hasRequiredRe;
 function requireRe () {
 	if (hasRequiredRe) return re.exports;
 	hasRequiredRe = 1;
-	(function (module, exports$1) {
+	(function (module, exports) {
 
 		const {
 		  MAX_SAFE_COMPONENT_LENGTH,
@@ -33677,14 +33677,14 @@ function requireRe () {
 		  MAX_LENGTH,
 		} = requireConstants();
 		const debug = requireDebug();
-		exports$1 = module.exports = {};
+		exports = module.exports = {};
 
 		// The actual regexps go on exports.re
-		const re = exports$1.re = [];
-		const safeRe = exports$1.safeRe = [];
-		const src = exports$1.src = [];
-		const safeSrc = exports$1.safeSrc = [];
-		const t = exports$1.t = {};
+		const re = exports.re = [];
+		const safeRe = exports.safeRe = [];
+		const src = exports.src = [];
+		const safeSrc = exports.safeSrc = [];
+		const t = exports.t = {};
 		let R = 0;
 
 		const LETTERDASHNUMBER = '[a-zA-Z0-9-]';
@@ -33848,7 +33848,7 @@ function requireRe () {
 		createToken('LONETILDE', '(?:~>?)');
 
 		createToken('TILDETRIM', `(\\s*)${src[t.LONETILDE]}\\s+`, true);
-		exports$1.tildeTrimReplace = '$1~';
+		exports.tildeTrimReplace = '$1~';
 
 		createToken('TILDE', `^${src[t.LONETILDE]}${src[t.XRANGEPLAIN]}$`);
 		createToken('TILDELOOSE', `^${src[t.LONETILDE]}${src[t.XRANGEPLAINLOOSE]}$`);
@@ -33858,7 +33858,7 @@ function requireRe () {
 		createToken('LONECARET', '(?:\\^)');
 
 		createToken('CARETTRIM', `(\\s*)${src[t.LONECARET]}\\s+`, true);
-		exports$1.caretTrimReplace = '$1^';
+		exports.caretTrimReplace = '$1^';
 
 		createToken('CARET', `^${src[t.LONECARET]}${src[t.XRANGEPLAIN]}$`);
 		createToken('CARETLOOSE', `^${src[t.LONECARET]}${src[t.XRANGEPLAINLOOSE]}$`);
@@ -33871,7 +33871,7 @@ function requireRe () {
 		// it modifies, so that `> 1.2.3` ==> `>1.2.3`
 		createToken('COMPARATORTRIM', `(\\s*)${src[t.GTLT]
 		}\\s*(${src[t.LOOSEPLAIN]}|${src[t.XRANGEPLAIN]})`, true);
-		exports$1.comparatorTrimReplace = '$1$2$3';
+		exports.comparatorTrimReplace = '$1$2$3';
 
 		// Something like `1.2.3 - 1.2.4`
 		// Note that these all use the loose form, because they'll be
@@ -36421,18 +36421,18 @@ var hasRequiredCode$1;
 function requireCode$1 () {
 	if (hasRequiredCode$1) return code$1;
 	hasRequiredCode$1 = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.regexpCode = exports$1.getEsmExportName = exports$1.getProperty = exports$1.safeStringify = exports$1.stringify = exports$1.strConcat = exports$1.addCodeArg = exports$1.str = exports$1._ = exports$1.nil = exports$1._Code = exports$1.Name = exports$1.IDENTIFIER = exports$1._CodeOrName = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.regexpCode = exports.getEsmExportName = exports.getProperty = exports.safeStringify = exports.stringify = exports.strConcat = exports.addCodeArg = exports.str = exports._ = exports.nil = exports._Code = exports.Name = exports.IDENTIFIER = exports._CodeOrName = void 0;
 		// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 		class _CodeOrName {
 		}
-		exports$1._CodeOrName = _CodeOrName;
-		exports$1.IDENTIFIER = /^[a-z$_][a-z$_0-9]*$/i;
+		exports._CodeOrName = _CodeOrName;
+		exports.IDENTIFIER = /^[a-z$_][a-z$_0-9]*$/i;
 		class Name extends _CodeOrName {
 		    constructor(s) {
 		        super();
-		        if (!exports$1.IDENTIFIER.test(s))
+		        if (!exports.IDENTIFIER.test(s))
 		            throw new Error("CodeGen: name must be a valid identifier");
 		        this.str = s;
 		    }
@@ -36446,7 +36446,7 @@ function requireCode$1 () {
 		        return { [this.str]: 1 };
 		    }
 		}
-		exports$1.Name = Name;
+		exports.Name = Name;
 		class _Code extends _CodeOrName {
 		    constructor(code) {
 		        super();
@@ -36474,8 +36474,8 @@ function requireCode$1 () {
 		        }, {})));
 		    }
 		}
-		exports$1._Code = _Code;
-		exports$1.nil = new _Code("");
+		exports._Code = _Code;
+		exports.nil = new _Code("");
 		function _(strs, ...args) {
 		    const code = [strs[0]];
 		    let i = 0;
@@ -36485,7 +36485,7 @@ function requireCode$1 () {
 		    }
 		    return new _Code(code);
 		}
-		exports$1._ = _;
+		exports._ = _;
 		const plus = new _Code("+");
 		function str(strs, ...args) {
 		    const expr = [safeStringify(strs[0])];
@@ -36498,7 +36498,7 @@ function requireCode$1 () {
 		    optimize(expr);
 		    return new _Code(expr);
 		}
-		exports$1.str = str;
+		exports.str = str;
 		function addCodeArg(code, arg) {
 		    if (arg instanceof _Code)
 		        code.push(...arg._items);
@@ -36507,7 +36507,7 @@ function requireCode$1 () {
 		    else
 		        code.push(interpolate(arg));
 		}
-		exports$1.addCodeArg = addCodeArg;
+		exports.addCodeArg = addCodeArg;
 		function optimize(expr) {
 		    let i = 1;
 		    while (i < expr.length - 1) {
@@ -36543,7 +36543,7 @@ function requireCode$1 () {
 		function strConcat(c1, c2) {
 		    return c2.emptyStr() ? c1 : c1.emptyStr() ? c2 : str `${c1}${c2}`;
 		}
-		exports$1.strConcat = strConcat;
+		exports.strConcat = strConcat;
 		// TODO do not allow arrays here
 		function interpolate(x) {
 		    return typeof x == "number" || typeof x == "boolean" || x === null
@@ -36553,29 +36553,29 @@ function requireCode$1 () {
 		function stringify(x) {
 		    return new _Code(safeStringify(x));
 		}
-		exports$1.stringify = stringify;
+		exports.stringify = stringify;
 		function safeStringify(x) {
 		    return JSON.stringify(x)
 		        .replace(/\u2028/g, "\\u2028")
 		        .replace(/\u2029/g, "\\u2029");
 		}
-		exports$1.safeStringify = safeStringify;
+		exports.safeStringify = safeStringify;
 		function getProperty(key) {
-		    return typeof key == "string" && exports$1.IDENTIFIER.test(key) ? new _Code(`.${key}`) : _ `[${key}]`;
+		    return typeof key == "string" && exports.IDENTIFIER.test(key) ? new _Code(`.${key}`) : _ `[${key}]`;
 		}
-		exports$1.getProperty = getProperty;
+		exports.getProperty = getProperty;
 		//Does best effort to format the name properly
 		function getEsmExportName(key) {
-		    if (typeof key == "string" && exports$1.IDENTIFIER.test(key)) {
+		    if (typeof key == "string" && exports.IDENTIFIER.test(key)) {
 		        return new _Code(`${key}`);
 		    }
 		    throw new Error(`CodeGen: invalid export name: ${key}, use explicit $id name mapping`);
 		}
-		exports$1.getEsmExportName = getEsmExportName;
+		exports.getEsmExportName = getEsmExportName;
 		function regexpCode(rx) {
 		    return new _Code(rx.toString());
 		}
-		exports$1.regexpCode = regexpCode;
+		exports.regexpCode = regexpCode;
 		
 	} (code$1));
 	return code$1;
@@ -36588,9 +36588,9 @@ var hasRequiredScope;
 function requireScope () {
 	if (hasRequiredScope) return scope;
 	hasRequiredScope = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.ValueScope = exports$1.ValueScopeName = exports$1.Scope = exports$1.varKinds = exports$1.UsedValueState = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.ValueScope = exports.ValueScopeName = exports.Scope = exports.varKinds = exports.UsedValueState = void 0;
 		const code_1 = /*@__PURE__*/ requireCode$1();
 		class ValueError extends Error {
 		    constructor(name) {
@@ -36602,8 +36602,8 @@ function requireScope () {
 		(function (UsedValueState) {
 		    UsedValueState[UsedValueState["Started"] = 0] = "Started";
 		    UsedValueState[UsedValueState["Completed"] = 1] = "Completed";
-		})(UsedValueState || (exports$1.UsedValueState = UsedValueState = {}));
-		exports$1.varKinds = {
+		})(UsedValueState || (exports.UsedValueState = UsedValueState = {}));
+		exports.varKinds = {
 		    const: new code_1.Name("const"),
 		    let: new code_1.Name("let"),
 		    var: new code_1.Name("var"),
@@ -36632,7 +36632,7 @@ function requireScope () {
 		        return (this._names[prefix] = { prefix, index: 0 });
 		    }
 		}
-		exports$1.Scope = Scope;
+		exports.Scope = Scope;
 		class ValueScopeName extends code_1.Name {
 		    constructor(prefix, nameStr) {
 		        super(nameStr);
@@ -36643,7 +36643,7 @@ function requireScope () {
 		        this.scopePath = (0, code_1._) `.${new code_1.Name(property)}[${itemIndex}]`;
 		    }
 		}
-		exports$1.ValueScopeName = ValueScopeName;
+		exports.ValueScopeName = ValueScopeName;
 		const line = (0, code_1._) `\n`;
 		class ValueScope extends Scope {
 		    constructor(opts) {
@@ -36714,7 +36714,7 @@ function requireScope () {
 		                nameSet.set(name, UsedValueState.Started);
 		                let c = valueCode(name);
 		                if (c) {
-		                    const def = this.opts.es5 ? exports$1.varKinds.var : exports$1.varKinds.const;
+		                    const def = this.opts.es5 ? exports.varKinds.var : exports.varKinds.const;
 		                    code = (0, code_1._) `${code}${def} ${name} = ${c};${this.opts._n}`;
 		                }
 		                else if ((c = getCode === null || getCode === void 0 ? void 0 : getCode(name))) {
@@ -36729,7 +36729,7 @@ function requireScope () {
 		        return code;
 		    }
 		}
-		exports$1.ValueScope = ValueScope;
+		exports.ValueScope = ValueScope;
 		
 	} (scope));
 	return scope;
@@ -36740,26 +36740,26 @@ var hasRequiredCodegen;
 function requireCodegen () {
 	if (hasRequiredCodegen) return codegen;
 	hasRequiredCodegen = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.or = exports$1.and = exports$1.not = exports$1.CodeGen = exports$1.operators = exports$1.varKinds = exports$1.ValueScopeName = exports$1.ValueScope = exports$1.Scope = exports$1.Name = exports$1.regexpCode = exports$1.stringify = exports$1.getProperty = exports$1.nil = exports$1.strConcat = exports$1.str = exports$1._ = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.or = exports.and = exports.not = exports.CodeGen = exports.operators = exports.varKinds = exports.ValueScopeName = exports.ValueScope = exports.Scope = exports.Name = exports.regexpCode = exports.stringify = exports.getProperty = exports.nil = exports.strConcat = exports.str = exports._ = void 0;
 		const code_1 = /*@__PURE__*/ requireCode$1();
 		const scope_1 = /*@__PURE__*/ requireScope();
 		var code_2 = /*@__PURE__*/ requireCode$1();
-		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return code_2._; } });
-		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return code_2.str; } });
-		Object.defineProperty(exports$1, "strConcat", { enumerable: true, get: function () { return code_2.strConcat; } });
-		Object.defineProperty(exports$1, "nil", { enumerable: true, get: function () { return code_2.nil; } });
-		Object.defineProperty(exports$1, "getProperty", { enumerable: true, get: function () { return code_2.getProperty; } });
-		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return code_2.stringify; } });
-		Object.defineProperty(exports$1, "regexpCode", { enumerable: true, get: function () { return code_2.regexpCode; } });
-		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return code_2.Name; } });
+		Object.defineProperty(exports, "_", { enumerable: true, get: function () { return code_2._; } });
+		Object.defineProperty(exports, "str", { enumerable: true, get: function () { return code_2.str; } });
+		Object.defineProperty(exports, "strConcat", { enumerable: true, get: function () { return code_2.strConcat; } });
+		Object.defineProperty(exports, "nil", { enumerable: true, get: function () { return code_2.nil; } });
+		Object.defineProperty(exports, "getProperty", { enumerable: true, get: function () { return code_2.getProperty; } });
+		Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return code_2.stringify; } });
+		Object.defineProperty(exports, "regexpCode", { enumerable: true, get: function () { return code_2.regexpCode; } });
+		Object.defineProperty(exports, "Name", { enumerable: true, get: function () { return code_2.Name; } });
 		var scope_2 = /*@__PURE__*/ requireScope();
-		Object.defineProperty(exports$1, "Scope", { enumerable: true, get: function () { return scope_2.Scope; } });
-		Object.defineProperty(exports$1, "ValueScope", { enumerable: true, get: function () { return scope_2.ValueScope; } });
-		Object.defineProperty(exports$1, "ValueScopeName", { enumerable: true, get: function () { return scope_2.ValueScopeName; } });
-		Object.defineProperty(exports$1, "varKinds", { enumerable: true, get: function () { return scope_2.varKinds; } });
-		exports$1.operators = {
+		Object.defineProperty(exports, "Scope", { enumerable: true, get: function () { return scope_2.Scope; } });
+		Object.defineProperty(exports, "ValueScope", { enumerable: true, get: function () { return scope_2.ValueScope; } });
+		Object.defineProperty(exports, "ValueScopeName", { enumerable: true, get: function () { return scope_2.ValueScopeName; } });
+		Object.defineProperty(exports, "varKinds", { enumerable: true, get: function () { return scope_2.varKinds; } });
+		exports.operators = {
 		    GT: new code_1._Code(">"),
 		    GTE: new code_1._Code(">="),
 		    LT: new code_1._Code("<"),
@@ -37173,7 +37173,7 @@ function requireCodegen () {
 		    }
 		    // `+=` code
 		    add(lhs, rhs) {
-		        return this._leafNode(new AssignOp(lhs, exports$1.operators.ADD, rhs));
+		        return this._leafNode(new AssignOp(lhs, exports.operators.ADD, rhs));
 		    }
 		    // appends passed SafeExpr to code or executes Block
 		    code(c) {
@@ -37375,7 +37375,7 @@ function requireCodegen () {
 		        ns[ns.length - 1] = node;
 		    }
 		}
-		exports$1.CodeGen = CodeGen;
+		exports.CodeGen = CodeGen;
 		function addNames(names, from) {
 		    for (const n in from)
 		        names[n] = (names[n] || 0) + (from[n] || 0);
@@ -37417,19 +37417,19 @@ function requireCodegen () {
 		function not(x) {
 		    return typeof x == "boolean" || typeof x == "number" || x === null ? !x : (0, code_1._) `!${par(x)}`;
 		}
-		exports$1.not = not;
-		const andCode = mappend(exports$1.operators.AND);
+		exports.not = not;
+		const andCode = mappend(exports.operators.AND);
 		// boolean AND (&&) expression with the passed arguments
 		function and(...args) {
 		    return args.reduce(andCode);
 		}
-		exports$1.and = and;
-		const orCode = mappend(exports$1.operators.OR);
+		exports.and = and;
+		const orCode = mappend(exports.operators.OR);
 		// boolean OR (||) expression with the passed arguments
 		function or(...args) {
 		    return args.reduce(orCode);
 		}
-		exports$1.or = or;
+		exports.or = or;
 		function mappend(op) {
 		    return (x, y) => (x === code_1.nil ? y : y === code_1.nil ? x : (0, code_1._) `${par(x)} ${op} ${par(y)}`);
 		}
@@ -37670,21 +37670,21 @@ var hasRequiredErrors;
 function requireErrors () {
 	if (hasRequiredErrors) return errors;
 	hasRequiredErrors = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.extendErrors = exports$1.resetErrorsCount = exports$1.reportExtraError = exports$1.reportError = exports$1.keyword$DataError = exports$1.keywordError = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.extendErrors = exports.resetErrorsCount = exports.reportExtraError = exports.reportError = exports.keyword$DataError = exports.keywordError = void 0;
 		const codegen_1 = /*@__PURE__*/ requireCodegen();
 		const util_1 = /*@__PURE__*/ requireUtil();
 		const names_1 = /*@__PURE__*/ requireNames();
-		exports$1.keywordError = {
+		exports.keywordError = {
 		    message: ({ keyword }) => (0, codegen_1.str) `must pass "${keyword}" keyword validation`,
 		};
-		exports$1.keyword$DataError = {
+		exports.keyword$DataError = {
 		    message: ({ keyword, schemaType }) => schemaType
 		        ? (0, codegen_1.str) `"${keyword}" keyword must be ${schemaType} ($data)`
 		        : (0, codegen_1.str) `"${keyword}" keyword is invalid ($data)`,
 		};
-		function reportError(cxt, error = exports$1.keywordError, errorPaths, overrideAllErrors) {
+		function reportError(cxt, error = exports.keywordError, errorPaths, overrideAllErrors) {
 		    const { it } = cxt;
 		    const { gen, compositeRule, allErrors } = it;
 		    const errObj = errorObjectCode(cxt, error, errorPaths);
@@ -37695,8 +37695,8 @@ function requireErrors () {
 		        returnErrors(it, (0, codegen_1._) `[${errObj}]`);
 		    }
 		}
-		exports$1.reportError = reportError;
-		function reportExtraError(cxt, error = exports$1.keywordError, errorPaths) {
+		exports.reportError = reportError;
+		function reportExtraError(cxt, error = exports.keywordError, errorPaths) {
 		    const { it } = cxt;
 		    const { gen, compositeRule, allErrors } = it;
 		    const errObj = errorObjectCode(cxt, error, errorPaths);
@@ -37705,12 +37705,12 @@ function requireErrors () {
 		        returnErrors(it, names_1.default.vErrors);
 		    }
 		}
-		exports$1.reportExtraError = reportExtraError;
+		exports.reportExtraError = reportExtraError;
 		function resetErrorsCount(gen, errsCount) {
 		    gen.assign(names_1.default.errors, errsCount);
 		    gen.if((0, codegen_1._) `${names_1.default.vErrors} !== null`, () => gen.if(errsCount, () => gen.assign((0, codegen_1._) `${names_1.default.vErrors}.length`, errsCount), () => gen.assign(names_1.default.vErrors, null)));
 		}
-		exports$1.resetErrorsCount = resetErrorsCount;
+		exports.resetErrorsCount = resetErrorsCount;
 		function extendErrors({ gen, keyword, schemaValue, data, errsCount, it, }) {
 		    /* istanbul ignore if */
 		    if (errsCount === undefined)
@@ -37726,7 +37726,7 @@ function requireErrors () {
 		        }
 		    });
 		}
-		exports$1.extendErrors = extendErrors;
+		exports.extendErrors = extendErrors;
 		function addError(gen, errObj) {
 		    const err = gen.const("err", errObj);
 		    gen.if((0, codegen_1._) `${names_1.default.vErrors} === null`, () => gen.assign(names_1.default.vErrors, (0, codegen_1._) `[${err}]`), (0, codegen_1._) `${names_1.default.vErrors}.push(${err})`);
@@ -40690,18 +40690,18 @@ var hasRequiredCore$1;
 function requireCore$1 () {
 	if (hasRequiredCore$1) return core$1;
 	hasRequiredCore$1 = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.CodeGen = exports$1.Name = exports$1.nil = exports$1.stringify = exports$1.str = exports$1._ = exports$1.KeywordCxt = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.CodeGen = exports.Name = exports.nil = exports.stringify = exports.str = exports._ = exports.KeywordCxt = void 0;
 		var validate_1 = /*@__PURE__*/ requireValidate();
-		Object.defineProperty(exports$1, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
+		Object.defineProperty(exports, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
 		var codegen_1 = /*@__PURE__*/ requireCodegen();
-		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return codegen_1._; } });
-		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return codegen_1.str; } });
-		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
-		Object.defineProperty(exports$1, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
-		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
-		Object.defineProperty(exports$1, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
+		Object.defineProperty(exports, "_", { enumerable: true, get: function () { return codegen_1._; } });
+		Object.defineProperty(exports, "str", { enumerable: true, get: function () { return codegen_1.str; } });
+		Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
+		Object.defineProperty(exports, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
+		Object.defineProperty(exports, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
+		Object.defineProperty(exports, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
 		const validation_error_1 = /*@__PURE__*/ requireValidation_error();
 		const ref_error_1 = /*@__PURE__*/ requireRef_error();
 		const rules_1 = /*@__PURE__*/ requireRules();
@@ -41181,7 +41181,7 @@ function requireCore$1 () {
 		}
 		Ajv.ValidationError = validation_error_1.default;
 		Ajv.MissingRefError = ref_error_1.default;
-		exports$1.default = Ajv;
+		exports.default = Ajv;
 		function checkOptions(checkOpts, options, msg, log = "error") {
 		    for (const key in checkOpts) {
 		        const opt = key;
@@ -42339,13 +42339,13 @@ var hasRequiredDependencies;
 function requireDependencies () {
 	if (hasRequiredDependencies) return dependencies;
 	hasRequiredDependencies = 1;
-	(function (exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.validateSchemaDeps = exports$1.validatePropertyDeps = exports$1.error = void 0;
+	(function (exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.validateSchemaDeps = exports.validatePropertyDeps = exports.error = void 0;
 		const codegen_1 = /*@__PURE__*/ requireCodegen();
 		const util_1 = /*@__PURE__*/ requireUtil();
 		const code_1 = /*@__PURE__*/ requireCode();
-		exports$1.error = {
+		exports.error = {
 		    message: ({ params: { property, depsCount, deps } }) => {
 		        const property_ies = depsCount === 1 ? "property" : "properties";
 		        return (0, codegen_1.str) `must have ${property_ies} ${deps} when property ${property} is present`;
@@ -42359,7 +42359,7 @@ function requireDependencies () {
 		    keyword: "dependencies",
 		    type: "object",
 		    schemaType: "object",
-		    error: exports$1.error,
+		    error: exports.error,
 		    code(cxt) {
 		        const [propDeps, schDeps] = splitDependencies(cxt);
 		        validatePropertyDeps(cxt, propDeps);
@@ -42406,7 +42406,7 @@ function requireDependencies () {
 		        }
 		    }
 		}
-		exports$1.validatePropertyDeps = validatePropertyDeps;
+		exports.validatePropertyDeps = validatePropertyDeps;
 		function validateSchemaDeps(cxt, schemaDeps = cxt.schema) {
 		    const { gen, data, keyword, it } = cxt;
 		    const valid = gen.name("valid");
@@ -42421,8 +42421,8 @@ function requireDependencies () {
 		        cxt.ok(valid);
 		    }
 		}
-		exports$1.validateSchemaDeps = validateSchemaDeps;
-		exports$1.default = def;
+		exports.validateSchemaDeps = validateSchemaDeps;
+		exports.default = def;
 		
 	} (dependencies));
 	return dependencies;
@@ -43597,9 +43597,9 @@ var hasRequiredAjv;
 function requireAjv () {
 	if (hasRequiredAjv) return ajv.exports;
 	hasRequiredAjv = 1;
-	(function (module, exports$1) {
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.MissingRefError = exports$1.ValidationError = exports$1.CodeGen = exports$1.Name = exports$1.nil = exports$1.stringify = exports$1.str = exports$1._ = exports$1.KeywordCxt = exports$1.Ajv = void 0;
+	(function (module, exports) {
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.MissingRefError = exports.ValidationError = exports.CodeGen = exports.Name = exports.nil = exports.stringify = exports.str = exports._ = exports.KeywordCxt = exports.Ajv = void 0;
 		const core_1 = /*@__PURE__*/ requireCore$1();
 		const draft7_1 = /*@__PURE__*/ requireDraft7();
 		const discriminator_1 = /*@__PURE__*/ requireDiscriminator();
@@ -43628,24 +43628,24 @@ function requireAjv () {
 		            super.defaultMeta() || (this.getSchema(META_SCHEMA_ID) ? META_SCHEMA_ID : undefined));
 		    }
 		}
-		exports$1.Ajv = Ajv;
-		module.exports = exports$1 = Ajv;
+		exports.Ajv = Ajv;
+		module.exports = exports = Ajv;
 		module.exports.Ajv = Ajv;
-		Object.defineProperty(exports$1, "__esModule", { value: true });
-		exports$1.default = Ajv;
+		Object.defineProperty(exports, "__esModule", { value: true });
+		exports.default = Ajv;
 		var validate_1 = /*@__PURE__*/ requireValidate();
-		Object.defineProperty(exports$1, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
+		Object.defineProperty(exports, "KeywordCxt", { enumerable: true, get: function () { return validate_1.KeywordCxt; } });
 		var codegen_1 = /*@__PURE__*/ requireCodegen();
-		Object.defineProperty(exports$1, "_", { enumerable: true, get: function () { return codegen_1._; } });
-		Object.defineProperty(exports$1, "str", { enumerable: true, get: function () { return codegen_1.str; } });
-		Object.defineProperty(exports$1, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
-		Object.defineProperty(exports$1, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
-		Object.defineProperty(exports$1, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
-		Object.defineProperty(exports$1, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
+		Object.defineProperty(exports, "_", { enumerable: true, get: function () { return codegen_1._; } });
+		Object.defineProperty(exports, "str", { enumerable: true, get: function () { return codegen_1.str; } });
+		Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return codegen_1.stringify; } });
+		Object.defineProperty(exports, "nil", { enumerable: true, get: function () { return codegen_1.nil; } });
+		Object.defineProperty(exports, "Name", { enumerable: true, get: function () { return codegen_1.Name; } });
+		Object.defineProperty(exports, "CodeGen", { enumerable: true, get: function () { return codegen_1.CodeGen; } });
 		var validation_error_1 = /*@__PURE__*/ requireValidation_error();
-		Object.defineProperty(exports$1, "ValidationError", { enumerable: true, get: function () { return validation_error_1.default; } });
+		Object.defineProperty(exports, "ValidationError", { enumerable: true, get: function () { return validation_error_1.default; } });
 		var ref_error_1 = /*@__PURE__*/ requireRef_error();
-		Object.defineProperty(exports$1, "MissingRefError", { enumerable: true, get: function () { return ref_error_1.default; } });
+		Object.defineProperty(exports, "MissingRefError", { enumerable: true, get: function () { return ref_error_1.default; } });
 		
 	} (ajv, ajv.exports));
 	return ajv.exports;
