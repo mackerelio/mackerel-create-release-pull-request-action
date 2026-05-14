@@ -40786,7 +40786,7 @@ function requireCore$1 () {
 		    constructor(opts = {}) {
 		        this.schemas = {};
 		        this.refs = {};
-		        this.formats = {};
+		        this.formats = Object.create(null);
 		        this._compilations = new Set();
 		        this._loading = {};
 		        this._cache = new Map();
