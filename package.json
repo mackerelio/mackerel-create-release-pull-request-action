@@ -67,7 +67,7 @@
     "prettier": "^3.8.4",
     "rollup": "^4.62.2",
     "snapshot-diff": "^0.10.0",
-    "timezone-mock": "^1.4.2",
+    "timezone-mock": "^1.4.3",
     "tmp-promise": "^3.0.3",
     "ts-jest": "^29.4.11",
     "ts-jest-resolver": "^2.0.1",
