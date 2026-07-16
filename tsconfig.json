@@ -22,5 +22,6 @@
     "target": "ES2022"
   },
   "exclude": ["__fixtures__", "__tests__", "coverage", "dist", "node_modules"],
-  "include": ["src"]
+  "include": ["src"],
+  "rootDir": "src"
 }

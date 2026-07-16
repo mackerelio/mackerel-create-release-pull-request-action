@@ -26,7 +26,7 @@ on:
   workflow_dispatch:
     inputs:
       release_version:
-        description: 'next release version'
+        description: "next release version"
         required: true
 
 env:

@@ -70,8 +70,8 @@ describe("send", () => {
 
   test("can exec git push, send create pull request", async () => {
     const exec = jest.fn(() => Promise.resolve(0));
-    const create = jest.fn(
-      (): Promise<PullsCreateResponse> => Promise.resolve({} as PullsCreateResponse)
+    const create = jest.fn((): Promise<PullsCreateResponse> =>
+      Promise.resolve({} as PullsCreateResponse)
     );
 
     await send({ ...defaultParams, exec, create });
@@ -80,8 +80,8 @@ describe("send", () => {
   });
   test("not executed create. when git push fails", async () => {
     const exec = jest.fn(() => Promise.reject(new Error("failed")));
-    const create = jest.fn(
-      (): Promise<PullsCreateResponse> => Promise.resolve({} as PullsCreateResponse)
+    const create = jest.fn((): Promise<PullsCreateResponse> =>
+      Promise.resolve({} as PullsCreateResponse)
     );
 
     await expect(send({ ...defaultParams, exec, create })).rejects.toThrow("failed");
