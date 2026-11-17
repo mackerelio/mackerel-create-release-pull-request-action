@@ -36,5 +36,5 @@ inputs:
     default: "false"
     description: "ignore update Program Files(Makefile, go.mod)"
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"
